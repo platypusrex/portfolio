@@ -12,7 +12,7 @@ const app = new Koa();
 
 app
 	.use(cors())
-	.use(errorHandler)
+	// .use(errorHandler)
 	.use(logger())
 	.use(bodyParser())
 	.use(serveSPA('../client/build/index.html'))
