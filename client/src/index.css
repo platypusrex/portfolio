@@ -1,5 +1,20 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: normal;
+  font-style: normal;
+  src: url("./fonts/montserrat/Montserrat-Regular.ttf") format("ttf"); }
+
+@font-face {
+  font-family: 'Cardo';
+  font-weight: normal;
+  font-style: normal;
+  src: url("./fonts/cardo/Cardo-Regular.ttf") format("ttf"); }
+
+.layout {
+  height: 100%; }
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
+  font-family: 'Cardo', 'Open Sans', Roboto, "Helvetica Neue", Helvetica,  sans-serif !important; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', 'Open Sans', Roboto, "Helvetica Neue", Helvetica,  sans-serif !important; }
