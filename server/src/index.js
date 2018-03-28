@@ -15,8 +15,8 @@ app
 	.use(errorHandler)
 	.use(logger())
 	.use(bodyParser())
-	.use(serveSPA('../client/build/index.html'))
-	.use(serve('../client/build'));
+	.use(serveSPA('../client/build/index.html'));
+	// .use(serve('../client/build'));
 
 router(app);
 
