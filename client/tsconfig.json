@@ -1,14 +1,19 @@
 {
   "compilerOptions": {
     "outDir": "build/dist",
-    "module": "esnext",
+    "module": "commonjs",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es2017",
+      "dom",
+      "esnext.asynciterable"
+    ],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "rootDir": "src",
+    "rootDirs": ["./client/src"],
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -17,6 +22,10 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true
   },
+  "baseUrl": "../",
+  "typeRoots": [
+    "./client/node_modules/@types"
+  ],
   "exclude": [
     "node_modules",
     "build",
@@ -25,5 +34,8 @@
     "webpack",
     "jest",
     "src/setupTests.ts"
+  ],
+  "types": [
+    "typePatches"
   ]
 }
