@@ -5,14 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/ --exec babel-node",
-    "build": "babel src -d dist",
+    "build": "babel src -d build",
     "lint": "eslint ./src",
-    "prod": "npm run build && node dist/"
+    "prod": "node build/index.js"
   },
   "author": "Frank Cooke",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-syntax-async-functions": "^6.13.0",
@@ -25,6 +24,7 @@
     "nodemon": "^1.17.2"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "dotenv-safe": "^5.0.1",
     "glob": "^7.1.2",
