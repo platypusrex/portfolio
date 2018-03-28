@@ -1,40 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { compose, lifecycle } from "recompose";
+import { Layout } from "./layout/Layout";
+import { withState } from "./shared/containers/withState";
 
-class App extends Component {
-  state = {
-    cities: []
-  };
+const initialState = {
+	cities: []
+};
 
-  async componentWillMount () {
-    const response = await fetch('api/cities');
-    const cities = await response.json();
-    this.setState({cities});
-  }
+const AppComponent = (props) => {
+	const {state} = props;
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+	return (
+		<Layout>
+			<div style={{margin: '0 auto', maxWidth: '300px'}}>
+				{state.cities.map(city => (
+					<div key={city.name} style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+						<span>{city.name}</span>
+						<span>{city.population}</span>
+					</div>
+				))}
+			</div>
+		</Layout>
+	);
+};
 
-        <div style={{margin: '0 auto', maxWidth: '300px'}}>
-          {this.state.cities.map(city => (
-            <div key={city.name} style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-              <span>{city.name}</span>
-              <span>{city.population}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-}
+export const App = compose(
+	withState(initialState),
+	lifecycle({
+		componentWillMount: async function () {
+			const {setState} = this.props;
+			const response = await fetch('api/cities');
+			const cities = await response.json();
 
-export default App;
+			setState({cities});
+		}
+	})
+)(AppComponent);
