@@ -1,0 +1,21 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "main": "index.js",
+  "engines": {
+    "node": "8.x",
+    "npm": "5.x"
+  },
+  "scripts": {
+    "build": "concurrently \"cd client && yarn build\" \"cd server && npm run build\"",
+    "heroku-postbuild": "yarn build",
+    "install": "(cd client && yarn) && (cd server && npm install)",
+    "start": "concurrently \"cd client && PORT=3000 yarn start\" \"cd server && PORT=3001 npm start\"",
+    "prod": "cd server && npm run prod"
+  },
+  "author": "Frank Cooke",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^3.5.1"
+  }
+}
