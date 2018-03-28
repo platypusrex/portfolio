@@ -16,8 +16,7 @@ app
 	.use(logger())
 	.use(bodyParser())
 	.use(serveSPA('../client/build/index.html'))
-	.use(serve('../client/build'));
-
-router(app);
+	.use(serve('../client/build'))
+	.use(router);
 
 app.listen(port, () => console.log(`The server is running on port ${port}`));
