@@ -1,6 +1,6 @@
 import Router from 'koa-router';
 
-const basePath = '/cities';
+const basePath = 'api/cities';
 const router = new Router();
 
 router
