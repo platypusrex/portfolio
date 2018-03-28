@@ -7,7 +7,7 @@
     "start": "nodemon src/ --exec babel-node",
     "build": "babel src -d dist",
     "lint": "eslint ./src",
-    "prod": "node dist/"
+    "prod": "npm run build && node dist/"
   },
   "author": "Frank Cooke",
   "license": "ISC",
