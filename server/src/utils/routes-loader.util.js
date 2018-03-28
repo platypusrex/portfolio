@@ -1,18 +1,19 @@
-import glob from 'glob';
+import compose from 'koa-compose';
 
-export function routesLoader (dirname) {
-	return new Promise((resolve, reject) => {
-		const routes = [];
-		glob(`${dirname}/*`, {
-			ignore: '**/index.js'
-		}, (err, files) => {
-			if(err) reject(err);
+export function combineRouters (routers) {
+	if (!Array.isArray(routers)) {
+		routers = Array.prototype.slice.call(arguments)
+	}
 
-			files.forEach(file => {
-				const route = require(file);
-				routes.push(route);
-			});
-			return resolve(routes);
-		});
+	let middleware = [];
+
+	routers.forEach(function (router) {
+		middleware.push(router.routes());
+
+		if (router.allowedMethods) {
+			middleware.push(router.allowedMethods())
+		}
 	});
+
+	return compose(middleware)
 }
