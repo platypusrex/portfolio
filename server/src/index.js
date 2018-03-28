@@ -3,7 +3,7 @@ import bodyParser from 'koa-bodyparser';
 import logger from 'koa-logger';
 import cors from 'kcors';
 import serve from 'koa-static';
-import { errorHandler } from "./middleware/error-handler.middleware";
+// import { errorHandler } from "./middleware/error-handler.middleware";
 import { serveSPA } from "./middleware/serveSinglePageApp.middleware";
 import { router } from "./routes";
 import { port } from "./config";
