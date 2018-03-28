@@ -8,7 +8,7 @@ class App extends Component {
   };
 
   async componentWillMount () {
-    const response = await fetch('/cities');
+    const response = await fetch('api/cities');
     const cities = await response.json();
     this.setState({cities});
   }
@@ -26,7 +26,7 @@ class App extends Component {
 
         <div style={{margin: '0 auto', maxWidth: '300px'}}>
           {this.state.cities.map(city => (
-            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+            <div key={city.name} style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
               <span>{city.name}</span>
               <span>{city.population}</span>
             </div>
