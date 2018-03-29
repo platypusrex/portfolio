@@ -1,9 +1,13 @@
 import React from 'react';
-import { Navbar } from "./Navbar";
+import { Menu } from "./Menu";
+import { Content } from "./Content";
 
 export const Layout = (props) => (
-	<div className="layout">
-		<Navbar/>
-		{props.children}
+	<div className="layout flex-container">
+		<Menu/>
+
+		<Content>
+			{props.children}
+		</Content>
 	</div>
 );
