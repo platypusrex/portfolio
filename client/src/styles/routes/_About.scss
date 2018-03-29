@@ -1,0 +1,18 @@
+.about {
+  height: 100%;
+}
+
+.about__jumbotron {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  overflow: hidden;
+  margin: 0 0;
+  background: url('./assets/me_mountain.jpg') no-repeat center 65% fixed;
+  background-size: cover;
+}
+
+.custom-text {
+  font-family: 'RockSalt', sans-serif;
+}
