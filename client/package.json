@@ -6,8 +6,9 @@
   "dependencies": {
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.4.0-alpha.0911da3",
+    "react-dom": "^16.4.0-alpha.0911da3",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "0.8.5",
     "recompose": "^0.26.0",
     "typeface-cardo": "^0.0.54",
