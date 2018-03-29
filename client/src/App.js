@@ -1,38 +1,19 @@
 import React from 'react';
-import { compose, lifecycle } from "recompose";
+import { compose } from "recompose";
+import { Route, Switch } from 'react-router-dom';
 import { Layout } from "./layout/Layout";
-import { withState } from "./shared/containers/withState";
+import { About } from "./routes/About";
+import { Contact } from "./routes/Contact";
 
-const initialState = {
-	cities: []
-};
-
-const AppComponent = (props) => {
-	const {state} = props;
-
+export const AppComponent = () => {
 	return (
 		<Layout>
-			<div style={{margin: '0 auto', maxWidth: '300px'}}>
-				{state.cities.map(city => (
-					<div key={city.name} style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-						<span>{city.name}</span>
-						<span>{city.population}</span>
-					</div>
-				))}
-			</div>
+			<Switch>
+				<Route exact={true} path={'/'} component={About}/>
+				<Route path={'/contact'} component={Contact}/>
+			</Switch>
 		</Layout>
 	);
 };
 
-export const App = compose(
-	withState(initialState),
-	lifecycle({
-		componentWillMount: async function () {
-			const {setState} = this.props;
-			const response = await fetch('api/cities');
-			const cities = await response.json();
-
-			setState({cities});
-		}
-	})
-)(AppComponent);
+export const App = compose()(AppComponent);
