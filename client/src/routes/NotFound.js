@@ -1,8 +1,9 @@
 import React from 'react';
 import { compose } from "recompose";
+import { Button } from "../shared/components/Button";
 import { withRouter } from 'react-router-dom';
 
-export const NotFoundComponent = () => {
+export const NotFoundComponent = (props) => {
 	return (
 		<div className="ia-page-error">
 			<div className="ia-page-error__content-wrapper flex-container center-all">
@@ -28,14 +29,10 @@ export const NotFoundComponent = () => {
 					<h6 className="ia-page-error__description">
 						Sorry, we couldn't find the page you were looking for.
 					</h6>
-					{/*<Button*/}
-						{/*className="ia-page-error__button"*/}
-						{/*type="primary"*/}
-						{/*size="large"*/}
-						{/*onClick={() => props.history.push('/')}*/}
-					{/*>*/}
-						{/*Return To Home Page*/}
-					{/*</Button>*/}
+
+					<Button onClick={() => props.history.push('/')}>
+						Return To About Page
+					</Button>
 				</div>
 			</div>
 		</div>
