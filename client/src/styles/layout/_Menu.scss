@@ -3,4 +3,11 @@
   border-right: 1px solid #eee;
   height: 100%;
   position: fixed;
+  transform: translateX(0);
+  transition: transform .15s ease-in-out;
+
+  @include screen-sm-down {
+    transform: translateX(-200px);
+    transition: transform .15s ease-in-out;
+  }
 }
