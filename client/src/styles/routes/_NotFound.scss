@@ -1,39 +1,3 @@
-//ghost variables
-$bgColor: #f7f7f7;
-$ghostBottom: 32px;
-$ghostSize: $ghostBottom * 5 + 2;
-$ghostShadow: darken($bgColor, 5%);
-$ghostFaceSize: round($ghostBottom / 1.3333) + 2;
-$ghostFaceColor: #959595;
-
-// wrench variables
-//$boltColor: darken(#ccc, 50%);
-//$wrenchColor: #ccc;
-//$wrenchAnimationSpeed: 2s;
-//$wrenchAnimationEase: cubic-bezier(.47, 1.47, .31, 1.03);
-
-@mixin border-bottom-jagged($size, $color-outer) {
-  position: relative;
-  padding-bottom: $size;
-
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: -16px;
-    bottom: -($ghostBottom / 3.85);
-    width: calc(100% + #{$size});
-    height: $size;
-    background-repeat: repeat-x;
-    background-size: 31px 32px;
-    background-position: left bottom;
-    background-image: linear-gradient(-45deg, $color-outer ($size / 2), transparent 0),
-    linear-gradient(45deg, $color-outer ($size / 2), transparent 0),
-    linear-gradient(-45deg, $ghostFaceColor ($size / 1.7), transparent 0),
-    linear-gradient(45deg, $ghostFaceColor ($size / 1.7), transparent 0);
-  }
-}
-
 .ia-page-error {
   position: relative;
   height: 100%;
