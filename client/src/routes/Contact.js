@@ -6,6 +6,7 @@ export const Contact = () => {
 	return (
 		<div className="contact">
 			<Container>
+
 				<PageHeader
 					title="Contact"
 					subTitle={(
