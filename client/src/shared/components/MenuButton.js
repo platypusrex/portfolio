@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { Icon } from "./Icon";
 
 export const MenuButton = (props) => {
-	const {title, subTitle, icon, onClick} = props;
+	const {title, subTitle, icon, isActive, onClick} = props;
+	const buttonClass = `menu-button ${isActive ? 'active' : ''}`;
 
 	return (
-			<a className="menu-button" onClick={onClick}>
+			<a className={buttonClass} onClick={!isActive ? onClick : null}>
 				<h3 className="menu-button__title">{title}</h3>
 
 				<div className="menu-button__icon-wrapper flex-container center-all">
@@ -22,5 +23,6 @@ MenuButton.propTypes = {
 	title: PropTypes.string.isRequired,
 	icon: PropTypes.string.isRequired,
 	subTitle: PropTypes.string.isRequired,
-	onClick: PropTypes.func.isRequired
+	onClick: PropTypes.func.isRequired,
+	isActive: PropTypes.bool
 };
