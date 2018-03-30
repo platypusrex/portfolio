@@ -8,7 +8,7 @@ export const LinkButton = (props) => {
 	return (
 		<div className="link-button">
 			<a className="link-button__wrapper" onClick={onClick}>
-				<Icon className={icon} size={46}/>
+				<Icon className={`${icon} link-button__icon`}/>
 				<h3 className="link-button__title">{title}</h3>
 				<p className="link-button__subTitle">{subTitle}</p>
 			</a>
