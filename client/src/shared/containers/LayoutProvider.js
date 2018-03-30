@@ -1,6 +1,7 @@
 import React, { createContext }  from 'react'
-import { compose } from "recompose";
+import { compose, lifecycle } from "recompose";
 import { withState } from "./withState";
+import { withRouter } from 'react-router-dom';
 
 export const AppContext = createContext();
 export const menuItems = {
@@ -10,7 +11,6 @@ export const menuItems = {
 
 const initialState = {
 	isSidebarVisible: false,
-	activeMenuItem: menuItems.about,
 	count: 0
 };
 
@@ -34,6 +34,30 @@ const UIStateProviderComponent = (props) => {
 	);
 };
 
+function setInitialMenuItem (props) {
+	const {setState, location} = props;
+	let menuItem;
+
+	switch (location.pathname) {
+		case '/':
+			menuItem = menuItems.about;
+			break;
+		case '/contact':
+			menuItem = menuItems.contact;
+			break;
+		default:
+			menuItem = menuItems.about;
+	}
+
+	setState(ss => ({...ss, activeMenuItem: menuItem}));
+}
+
 export const UIStateProvider = compose(
-	withState(initialState)
+	withRouter,
+	withState(initialState),
+	lifecycle({
+		componentDidMount: function () {
+			setInitialMenuItem(this.props);
+		}
+	})
 )(UIStateProviderComponent);
