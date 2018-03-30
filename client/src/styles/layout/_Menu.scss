@@ -1,13 +1,20 @@
 .menu {
+  background: #fff;
   width: 200px;
   border-right: 1px solid #eee;
   height: 100%;
   position: fixed;
+  z-index: 1000;
   transform: translateX(0);
   transition: transform .15s ease-in-out;
 
   @include screen-sm-down {
     transform: translateX(-200px);
+    transition: transform .15s ease-in-out;
+  }
+
+  &.open {
+    transform: translateX(0);
     transition: transform .15s ease-in-out;
   }
 }
