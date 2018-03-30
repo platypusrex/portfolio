@@ -26,17 +26,17 @@ export const AboutComponent = (props) => {
 		<div className="about">
 			<div className="about__jumbotron"/>
 
-			<Container className="about__content">
-				<PageHeader
-					title="Frank G. Cooke III"
-					subTitle={(
-						<React.Fragment>
-							Front End Engineer&nbsp;&nbsp;|&nbsp;&nbsp;Charleston, SC
-							<br/>Helping build the web one pixel at a time
-						</React.Fragment>
-					)}
-				/>
+			<PageHeader
+				title="Frank G. Cooke III"
+				subTitle={(
+					<React.Fragment>
+						Front End Engineer&nbsp;&nbsp;|&nbsp;&nbsp;Charleston, SC
+						<br/>Helping build the web one pixel at a time
+					</React.Fragment>
+				)}
+			/>
 
+			<Container className="about__content">
 				<div className="grid">
 					<div className="col_md-last">
 						<Paragraph text={paragraphs.first}/>
