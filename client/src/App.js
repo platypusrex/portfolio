@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { Layout } from "./layout/Layout";
 import { About } from "./routes/About";
 import { Contact } from "./routes/Contact";
+import { Resume } from "./routes/Resume";
 
 export const AppComponent = () => {
 	return (
@@ -11,6 +12,7 @@ export const AppComponent = () => {
 			<Switch>
 				<Route exact={true} path={'/'} component={About}/>
 				<Route path={'/contact'} component={Contact}/>
+				<Route path={'/resume'} component={Resume}/>
 			</Switch>
 		</Layout>
 	);
