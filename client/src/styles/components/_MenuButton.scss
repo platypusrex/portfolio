@@ -8,7 +8,7 @@
   margin: 10px 0;
 
   &:hover {
-    color: lighten(#555, 6%);
+    color: $red;
     width: 70%;
     background: #f8f8f8;
     transition: all .15s ease-in-out;
