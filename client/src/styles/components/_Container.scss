@@ -1,12 +1,12 @@
 .content-container {
-  padding: 0 50px 0 150px;
+  padding: 0 150px;
   height: 100vh;
 
   @include screen-md-down {
-    padding: 0 80px;
+    padding: 0 80px !important;
   }
 
   @include screen-sm-down {
-    padding: 0 40px;
+    padding: 0 40px !important;
   }
 }
