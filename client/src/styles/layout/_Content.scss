@@ -2,4 +2,10 @@
   width: 100%;
   height: 100%;
   margin-left: 200px;
+  transition: margin .15s ease-in-out;
+
+  @include screen-sm-down {
+    margin-left: 0;
+    transition: margin .15s ease-in-out;
+  }
 }
