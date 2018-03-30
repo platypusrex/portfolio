@@ -1,6 +1,6 @@
 import React from 'react';
 import { compose, withHandlers } from "recompose";
-import { AppContext } from "../shared/containers/LayoutProvider";
+import { AppContext, menuItems } from "../shared/containers/LayoutProvider";
 import { MenuButton } from "../shared/components/MenuButton";
 import { withRouter } from "react-router-dom";
 
@@ -15,14 +15,16 @@ export const MenuComponent = (props) => {
 						title="About"
 						subTitle="Who I Am"
 						icon="ti-user"
-						onClick={() => props.handleNavToAbout(actions)}
+						isActive={appState.activeMenuItem === menuItems.about}
+						onClick={() => props.handleMenuItemSelect(actions, '/', menuItems.about)}
 					/>
 
 					<MenuButton
 						title="Contact"
 						subTitle="Let's get in touch"
 						icon="ti-email"
-						onClick={() => props.handleNavToContact(actions)}
+						isActive={appState.activeMenuItem === menuItems.contact}
+						onClick={() => props.handleMenuItemSelect(actions, '/contact', menuItems.contact)}
 					/>
 				</div>
 			)}
@@ -33,13 +35,10 @@ export const MenuComponent = (props) => {
 export const Menu = compose(
 	withRouter,
 	withHandlers({
-		handleNavToAbout: (props) => (actions) => {
+		handleMenuItemSelect: (props) => (actions, path, menuItem) => {
 			actions.toggleSidebar();
-			props.history.push('/')
+			actions.setActiveMenuItem(menuItem);
+			props.history.push(path)
 		},
-		handleNavToContact: (props) => (actions) => {
-			actions.toggleSidebar();
-			props.history.push('/contact')
-		}
 	})
 )(MenuComponent);
