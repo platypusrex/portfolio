@@ -26,7 +26,7 @@ export const AboutComponent = (props) => {
 		<div className="about">
 			<div className="about__jumbotron"/>
 
-			<Container>
+			<Container className="about__content">
 				<PageHeader
 					title="Frank G. Cooke III"
 					subTitle={(
