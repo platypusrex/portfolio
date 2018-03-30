@@ -5,7 +5,7 @@ import { withState } from "./withState";
 export const AppContext = createContext();
 
 const initialState = {
-	isSidebarVisible: true,
+	isSidebarVisible: false,
 	count: 0
 };
 
