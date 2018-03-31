@@ -35,8 +35,12 @@ export const Contact = () => {
 								<Paragraph noMargin>Charleston, SC</Paragraph>
 							</div>
 							<div className="contact__social-link-wrapper flex-container center-row-vertical" style={{marginTop: '5px'}}>
-								<SocialLink icon="ti-linkedin" style={{marginRight: '12px'}}/>
-								<SocialLink icon="ti-github"/>
+								<SocialLink
+									url="https://www.linkedin.com/in/frank-cooke-82562852/"
+									icon="ti-linkedin"
+									style={{marginRight: '12px'}}
+								/>
+								<SocialLink url="https://github.com/platypusrex" icon="ti-github"/>
 							</div>
 						</div>
 					</div>
