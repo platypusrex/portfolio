@@ -6,7 +6,8 @@ import { withRouter } from 'react-router-dom';
 export const AppContext = createContext();
 export const menuItems = {
 	about: 'about',
-	contact: 'contact'
+	contact: 'contact',
+	resume: 'resume'
 };
 
 const initialState = {
@@ -44,6 +45,9 @@ function setInitialMenuItem (props) {
 			break;
 		case '/contact':
 			menuItem = menuItems.contact;
+			break;
+		case '/resume':
+			menuItem = menuItems.resume;
 			break;
 		default:
 			menuItem = menuItems.about;
