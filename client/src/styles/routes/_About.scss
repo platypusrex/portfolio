@@ -21,6 +21,48 @@
   }
 }
 
+.about__jumbotron-text {
+  font-family: 'Nanum Pen Script', sans-serif !important;
+  font-size: 52px;
+  display: inline-block;
+  margin: 50px 0 0 25px;
+  transform: rotate(-25deg);
+  color: #fff;
+  transition: all .15s ease-in-out;
+
+  @include screen-md-down {
+    font-size: 38px;
+    transition: all .15s ease-in-out;
+  }
+
+  @include screen-sm-down {
+    font-size: 28px;
+    transition: all .15s ease-in-out;
+  }
+}
+
+.about__jumbotron-arrow {
+  max-width: 240px;
+  transform: rotate(57deg);
+  margin-left: 120px;
+  position: relative;
+  top: -30px;
+  transition: all .15s ease-in-out;
+
+  @include screen-md-down {
+    max-width: 180px;
+    margin-left: 90px;
+    transition: all .15s ease-in-out;
+  }
+
+  @include screen-sm-down {
+    max-width: 125px;
+    top: -10px;
+    margin-left: 75px;
+    transition: all .15s ease-in-out;
+  }
+}
+
 .about__content {
   padding: 0 50px 0 150px;
   height: 73vh;

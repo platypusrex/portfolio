@@ -6,6 +6,7 @@ import { PageHeader } from "../shared/components/PageHeader";
 import { LinkButton } from "../shared/components/LinkButton";
 import { Paragraph } from "../shared/components/Paragraph";
 import { withRouter } from 'react-router-dom';
+import arrow from '../assets/rotated-right-arrow.svg';
 
 const paragraphs = {
 	first: 'I\'m a front end engineer and full stack web developer with a passion for building cool\n' +
@@ -18,14 +19,21 @@ const paragraphs = {
 		'world as much as time permits.',
 	third: 'I want to be involved in projects that I can be proud of, work with amazing people, and advance my\n' +
 		'development career. I see teamwork, open communication, and compassion as key values for building\n' +
-		'successful products. I realise that adaptability, curiosity, and humility are the most\n' +
+		'successful products. I realize that adaptability, curiosity, and humility are the most\n' +
 		'important qualities for succeeding in the tech industry.'
 };
 
 export const AboutComponent = (props) => {
 	return (
 		<div className="about">
-			<div className="about__jumbotron"/>
+			<div className="about__jumbotron">
+				<div className="about__jumbotron-text-wrapper">
+					<span className="about__jumbotron-text">Hello world!</span>
+					<div>
+						<img className="about__jumbotron-arrow" src={arrow} alt=""/>
+					</div>
+				</div>
+			</div>
 
 			<PageHeader
 				title="Frank G. Cooke III"
@@ -40,9 +48,9 @@ export const AboutComponent = (props) => {
 			<Container className="about__content">
 				<div className="grid">
 					<div className="col_md-last">
-						<Paragraph text={paragraphs.first}/>
-						<Paragraph text={paragraphs.second}/>
-						<Paragraph text={paragraphs.third}/>
+						<Paragraph size="lg">{paragraphs.first}</Paragraph>
+						<Paragraph size="lg">{paragraphs.second}</Paragraph>
+						<Paragraph size="lg">{paragraphs.third}</Paragraph>
 					</div>
 
 					<div className="col-3-middle_md-12">
