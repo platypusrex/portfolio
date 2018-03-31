@@ -141,22 +141,6 @@
   }
 }
 
-//.button__skew::after {
-//  background: lighten($blue, 10%);
-//  height: 100%;
-//  left: -35%;
-//  top: 0;
-//  transform: skew(50deg);
-//  transition-duration: 0.3s;
-//  transform-origin: top left;
-//  width: 0;
-//}
-//
-//.button__skew:hover::after {
-//  height: 100%;
-//  width: 135%;
-//}
-
 .button__inner {
   font-family: 'Montserrat', 'Open Sans', Roboto, "Helvetica Neue", Helvetica,  sans-serif !important;
   text-transform: uppercase;
