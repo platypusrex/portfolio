@@ -16,10 +16,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Cardo', 'Open Sans', Roboto, "Helvetica Neue", Helvetica,  sans-serif !important;
-
-  @include screen-xs-down {
-    overflow-x: hidden;
-  }
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
