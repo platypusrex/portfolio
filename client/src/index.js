@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import 'typeface-montserrat'
 import 'typeface-cardo';
+import 'typeface-nanum-pen-script';
 import './index.css';
 import { App } from "./App";
 import registerServiceWorker from './registerServiceWorker';
