@@ -1,5 +1,6 @@
 import React from 'react';
-import { compose } from "recompose";
+import { compose, withHandlers } from "recompose";
+import { AppContext } from "../shared/containers/LayoutProvider";
 import { Container } from "../shared/components/Container";
 import { PageHeader } from "../shared/components/PageHeader";
 import { LinkButton } from "../shared/components/LinkButton";
@@ -46,12 +47,16 @@ export const AboutComponent = (props) => {
 
 					<div className="col-3-middle_md-12">
 						<div className="about__link-button-wrapper flex-container column">
-							<LinkButton
-								title="Resume"
-								subTitle="View resume"
-								icon="ti-file"
-								onClick={() => props.history.push('/resume')}
-							/>
+							<AppContext.Consumer>
+								{({actions}) => (
+									<LinkButton
+										title="Resume"
+										subTitle="View resume"
+										icon="ti-file"
+										onClick={() => props.handlerNavToResumePage(actions)}
+									/>
+								)}
+							</AppContext.Consumer>
 
 							<LinkButton
 								title="Github"
@@ -68,5 +73,11 @@ export const AboutComponent = (props) => {
 };
 
 export const About = compose(
-	withRouter
+	withRouter,
+	withHandlers({
+		handlerNavToResumePage: (props) => (actions) => {
+			actions.setActiveMenuItem(null);
+			props.history.push('/resume')
+		}
+	})
 )(AboutComponent);
