@@ -5,7 +5,7 @@ export const PageHeader = (props) => {
 	const {title, subTitle} = props;
 
 	return (
-		<div className="page-header grid-center">
+		<div className="page-header grid-center" id="page-header-cmp">
 			<div className="col-12">
 				<div className="page-header__wrapper flex-container column center-all">
 					<h1 className="page-header__title">{title}</h1>
