@@ -10,13 +10,23 @@
   text-align: center;
   display: block;
   border-radius: 3px;
-  transition: all .15s ease-in-out;
+  transition: all .3s ease-in-out;
   cursor: pointer;
 
   &:hover {
-    color: $blue;
-    transition: all .15s ease-in-out;
+    .link-button__title,
+    .link-button__subTitle,
+    .link-button__icon {
+      color: $blue;
+      transition: all .3s ease-in-out;
+    }
   }
+}
+
+.link-button__title,
+.link-button__subTitle,
+.link-button__icon {
+  transition: all .3s ease-in-out;
 }
 
 .link-button__title,
