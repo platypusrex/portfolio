@@ -5,6 +5,7 @@
 
 .button {
   background: $blue;
+  border-color: $blue;
   border-radius: 3px;
   color: #fff;
   display: inline-block;
@@ -16,6 +17,10 @@
     content: '';
     position: absolute;
     z-index: 100;
+  }
+
+  &:hover {
+    border-color: lighten($blue, 10);
   }
 }
 
