@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { createClassName } from "../utils/createClassName";
 
 const buttonSizes = {
 	sm: 'sm',
@@ -36,10 +37,6 @@ export const Button = (props) => {
 		</div>
 	);
 };
-
-function createClassName (prefixCls, className) {
-	return `${prefixCls}__${className}`;
-}
 
 function getButtonSize (props) {
 	const {prefixCls, size} = props;
