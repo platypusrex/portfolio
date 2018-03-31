@@ -30,7 +30,9 @@ export const AboutComponent = (props) => {
 				<div className="about__jumbotron-text-wrapper">
 					<span className="about__jumbotron-text">Hello world!</span>
 					<div>
-						<img className="about__jumbotron-arrow" src={arrow} alt=""/>
+						<a onClick={props.handleScrollToAbout} title="Click me!">
+							<img className="about__jumbotron-arrow" src={arrow} alt=""/>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -86,6 +88,10 @@ export const About = compose(
 		handlerNavToResumePage: (props) => (actions) => {
 			actions.setActiveMenuItem(null);
 			props.history.push('/resume')
+		},
+		handleScrollToAbout: (props) => () => {
+			document.getElementById('page-header-cmp')
+				.scrollIntoView({behavior: 'smooth', block: 'start'})
 		}
 	})
 )(AboutComponent);
