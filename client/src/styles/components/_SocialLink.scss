@@ -1,0 +1,16 @@
+.social-link {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(0,0,0,0.8);
+  border-radius: 50%;
+  cursor: pointer;
+  background: #fff;
+  color: rgba(0,0,0,0.8);;
+  transition: all .15s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    background: rgba(0,0,0,0.8);;
+    transition: all .3s ease-in-out
+  }
+}
