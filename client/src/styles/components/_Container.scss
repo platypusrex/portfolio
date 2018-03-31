@@ -8,4 +8,8 @@
   @include screen-sm-down {
     padding: 0 40px !important;
   }
+
+  @include screen-xs-down {
+    padding: 0 25px !important;
+  }
 }
