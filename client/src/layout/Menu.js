@@ -5,27 +5,29 @@ import { MenuButton } from "../shared/components/MenuButton";
 import { withRouter } from "react-router-dom";
 
 export const MenuComponent = (props) => {
-	const menuClass = 'menu flex-container column center-all';
+	const menuClass = 'menu';
 
 	return (
 		<AppContext.Consumer>
 			{({appState, actions}) => (
 				<div className={`${menuClass} ${appState.isSidebarVisible ? 'open' : ''}`}>
-					<MenuButton
-						title="About"
-						subTitle="Who I Am"
-						icon="ti-user"
-						isActive={appState.activeMenuItem === menuItems.about}
-						onClick={() => props.handleMenuItemSelect(actions, '/', menuItems.about)}
-					/>
+					<div className="menu__inner flex-container column center-all">
+						<MenuButton
+							title="About"
+							subTitle="Who I Am"
+							icon="ti-user"
+							isActive={appState.activeMenuItem === menuItems.about}
+							onClick={() => props.handleMenuItemSelect(actions, '/', menuItems.about)}
+						/>
 
-					<MenuButton
-						title="Contact"
-						subTitle="Let's get in touch"
-						icon="ti-email"
-						isActive={appState.activeMenuItem === menuItems.contact}
-						onClick={() => props.handleMenuItemSelect(actions, '/contact', menuItems.contact)}
-					/>
+						<MenuButton
+							title="Contact"
+							subTitle="Let's get in touch"
+							icon="ti-email"
+							isActive={appState.activeMenuItem === menuItems.contact}
+							onClick={() => props.handleMenuItemSelect(actions, '/contact', menuItems.contact)}
+						/>
+					</div>
 				</div>
 			)}
 		</AppContext.Consumer>
