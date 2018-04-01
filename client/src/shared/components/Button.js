@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { createClassName } from "../utils/createClassName";
+import {Spinner} from "./Spinner";
 
 const buttonSizes = {
 	sm: 'sm',
@@ -17,7 +18,7 @@ const hoverState = {
 };
 
 export const Button = (props) => {
-	const {className, style, disabled, onClick} = props;
+	const {className, style, disabled, loading, onClick} = props;
 	const sizeClass = getButtonSize(props);
 	const hoverClass = getButtonHover(props);
 	const buttonClass = `button ${sizeClass} ${hoverClass} ${className || ''}`;
@@ -33,6 +34,10 @@ export const Button = (props) => {
 				<span className="button__inner">
 					{props.children}
 				</span>
+
+				<div className={`button__loading-wrapper ${loading ? 'show' : ''}`}>
+					<Spinner/>
+				</div>
 			</button>
 		</div>
 	);
@@ -82,6 +87,7 @@ Button.propTypes = {
 	disabled: PropTypes.bool,
 	style: PropTypes.object,
 	size: PropTypes.oneOf(Object.keys(buttonSizes).map(key => buttonSizes[key])),
-	hover: PropTypes.oneOf(Object.keys(hoverState).map(key => hoverState[key]))
+	hover: PropTypes.oneOf(Object.keys(hoverState).map(key => hoverState[key])),
+	loading: PropTypes.bool
 };
 
