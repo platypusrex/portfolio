@@ -8,8 +8,10 @@
   border-color: $blue;
   border-radius: 3px;
   color: #fff;
-  display: inline-block;
   position: relative;
+  display: flex;
+  align-items: center;
+
 
   &:before,
   &:after {
@@ -141,9 +143,27 @@
   }
 }
 
+.button__inner,
+.button__loading-wrapper {
+  position: relative;
+  z-index: 200;
+}
+
+// Button Text Wrapper
 .button__inner {
   font-family: 'Montserrat', 'Open Sans', Roboto, "Helvetica Neue", Helvetica,  sans-serif !important;
   text-transform: uppercase;
-  position: relative;
-  z-index: 200;
+}
+
+// Button loading
+.button__loading-wrapper {
+  max-width: 0;
+  opacity: 0;
+  transition: all .15s ease-in-out;
+
+  &.show {
+    max-width: 25px;
+    opacity: 1;
+    transition: all .15s ease-in-out;
+  }
 }
