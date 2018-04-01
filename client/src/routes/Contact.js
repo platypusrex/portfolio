@@ -24,7 +24,7 @@ export const Contact = () => {
 				)}
 			/>
 
-			<Container>
+			<Container className="contact__content">
 				<div className="contact__content-wrapper grid">
 					<div className="col-4_md-5_sm-12">
 						<div className="contact__contact-info-wrapper flex-container column">
