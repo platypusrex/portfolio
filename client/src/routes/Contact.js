@@ -7,13 +7,17 @@ import { SocialLink } from "../shared/components/SocialLink";
 import { Button } from "../shared/components/Button";
 import { withState } from "../shared/containers/withState";
 import { Input } from "../shared/components/Input";
+import { sendEmail } from "../api/sendEmail";
+import { validateFormFields } from "../shared/utils/validateFormFields";
+import swal from 'sweetalert';
 import robot from '../assets/badass_robot.jpg';
-import {sendEmail} from "../api/sendEmail";
 
 const initialState = {
 	name: '',
 	email: '',
 	message: '',
+	isSubmitting: false,
+	errors: {}
 };
 
 export const ContactComponent = (props) => {
@@ -63,6 +67,8 @@ export const ContactComponent = (props) => {
 								placeholder="Your name"
 								value={state.name}
 								onChange={name => setState(ss => ({...ss, name}))}
+								onFocus={props.handleInputFocus}
+								error={state.errors.name}
 							/>
 						</div>
 
@@ -72,6 +78,8 @@ export const ContactComponent = (props) => {
 								type="email"
 								value={state.email}
 								onChange={email => setState(ss => ({...ss, email}))}
+								onFocus={props.handleInputFocus}
+								error={state.errors.name}
 							/>
 						</div>
 
@@ -81,11 +89,13 @@ export const ContactComponent = (props) => {
 								textArea
 								value={state.message}
 								onChange={message => setState(ss => ({...ss, message}))}
+								onFocus={props.handleInputFocus}
+								error={state.errors.message}
 							/>
 						</div>
 
 						<div className="flex-container" style={{marginBottom: '20px', float: 'right'}}>
-							<Button onClick={props.handleSendEmail}>Send Message</Button>
+							<Button loading={state.isSubmitting} onClick={props.handleSendEmail}>Send Message</Button>
 						</div>
 					</div>
 				</div>
@@ -97,13 +107,38 @@ export const ContactComponent = (props) => {
 export const Contact = compose(
 	withState(initialState),
 	withHandlers({
+		handleInputFocus: (props) => () => props.setState(ss => ({...ss, errors: {}})),
 		handleSendEmail: (props) => async () => {
-			console.log(props.state);
+			const {setState} = props;
+			setState(ss => ({...ss, isSubmitting: true}));
+
 			const {name, email, message} = props.state;
 			const requestBody = {name, email, message};
 
-			const response = await sendEmail(requestBody);
-			console.log(response);
+			const formValues = [{name}, {email}, {message}];
+			const formErrors = validateFormFields(formValues);
+
+			if (Object.keys(formErrors).length) {
+				setState(ss => ({...ss, isSubmitting: false, errors: formErrors}));
+				return;
+			}
+
+			try {
+				await sendEmail(requestBody);
+				setState(initialState);
+				swal({
+					title: 'Message sent!',
+					text: `Thanks and I'll get back with you as soon as I can!`,
+					icon: 'success',
+				});
+			} catch (err) {
+				setState(initialState);
+				swal({
+					title: 'Error!',
+					text: 'Looks like something went wrong.',
+					icon: 'error',
+				});
+			}
 		}
 	})
 )(ContactComponent);
