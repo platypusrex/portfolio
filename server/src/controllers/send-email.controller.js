@@ -9,10 +9,10 @@ export const sendEmailFromContact = async (ctx) => {
 	}
 
 	await sendEmail({
-		from: email,
+		replyTo: email,
 		to: clientEmail,
 		subject: `Frank Cooke Portfolio - New Message from ${name}`,
-		text: message
+		text: `name: ${name}\n\nemail: ${email}\n\nmessage:\n${message}`
 	});
 
 	ctx.body = {isSuccess: true};
