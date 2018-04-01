@@ -12,6 +12,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "0.8.5",
     "recompose": "^0.26.0",
+    "sweetalert": "^2.1.0",
     "typeface-cardo": "^0.0.54",
     "typeface-montserrat": "^0.0.54",
     "typeface-nanum-pen-script": "^0.0.56"
