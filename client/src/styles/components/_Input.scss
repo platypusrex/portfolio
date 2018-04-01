@@ -1,7 +1,30 @@
 .input,
+.textArea,
+.input__error {
+  font-size: 14px;
+  font-family: Montserrat, sans-serif;
+}
+
+.input,
 .textArea {
   width: 100%;
   padding: 15px;
   border-radius: 3px;
   border: 1px solid;
+
+  &.error {
+    border-color: red
+  }
+}
+
+.input__wrapper {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.input__error {
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }

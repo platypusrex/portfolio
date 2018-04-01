@@ -17,44 +17,57 @@ export const Input = (props) => {
 		textArea,
 		cols,
 		rows,
+		error,
 		onChange,
 		onFocus,
 		onBlur
 	} = props;
 
+	const Error = (
+		<React.Fragment>
+			{error && <span className="input__error" style={{color: 'red'}}>{error}</span>}
+		</React.Fragment>
+	);
+
 	if (textArea) {
 		return (
-			<textarea
-				className="textArea"
-				disabled={disabled}
-				value={value}
-				placeholder={placeholder}
-				cols={cols}
-				rows={rows}
-				onChange={e => onChange(e.target.value)}
-				onFocus={onFocus}
-				onBlur={onBlur}
-			/>
+			<div className="input__wrapper">
+				<textarea
+					className={`textArea ${error ? 'error' : ''}`}
+					disabled={disabled}
+					value={value}
+					placeholder={placeholder}
+					cols={cols}
+					rows={rows}
+					onChange={e => onChange(e.target.value)}
+					onFocus={onFocus}
+					onBlur={onBlur}
+				/>
+				{Error}
+			</div>
 		)
 	}
 
 	return (
-		<input
-			className="input"
-			disabled={disabled}
-			value={value}
-			placeholder={placeholder}
-			type={type}
-			onChange={e => onChange(e.target.value)}
-			onFocus={onFocus}
-			onBlur={onBlur}
-		/>
+		<div className="input__wrapper">
+			<input
+				className={`input ${error ? 'error' : ''}`}
+				disabled={disabled}
+				value={value}
+				placeholder={placeholder}
+				type={type}
+				onChange={e => onChange(e.target.value)}
+				onFocus={onFocus}
+				onBlur={onBlur}
+			/>
+			{Error}
+		</div>
 	);
 };
 
 Input.defaultProps = {
 	type: inputTypes.text,
-	rows: 15
+	rows: 12
 };
 
 Input.propTypes = {
@@ -67,6 +80,7 @@ Input.propTypes = {
 	value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
-	onBlur: PropTypes.func
+	onBlur: PropTypes.func,
+	error: PropTypes.string
 };
 
