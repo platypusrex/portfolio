@@ -23,18 +23,26 @@
   font-size: 60px;
   font-weight: 900;
   margin: 0 0 5px;
+
+  @include screen-xs-down {
+    font-size: 52px;
+  }
 }
 
 .ia-page-error__title {
   font-size: 36px;
   line-height: 36px;
   margin: 0;
+
+  @include screen-xs-down {
+    font-size: 30px;
+  }
 }
 
 .ia-page-error__description {
   margin-top: 5px;
   margin-bottom: 12px;
-  color: #9b9b9b;
+  color: #888;
   font-size: 16px;
   font-weight: lighter;
 }
