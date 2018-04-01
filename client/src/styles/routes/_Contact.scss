@@ -45,13 +45,21 @@
 }
 
 .contact__content {
-  padding: 0 65px 20px;
+  padding: 0 20px;
+  margin: 0 40px;
+  border-radius: 3px;
+  background: url('./assets/badass_robot.jpg') no-repeat center 1% fixed;
+  background-size: cover;
+
+  @include screen-xs-down {
+    padding: 0 10px !important;
+    margin: 0 10px 10px;
+  }
 }
 
 .contact__content-wrapper {
   position: relative;
   padding-top: 20px;
-  margin-bottom: 20px;
 }
 
 .contact__contact-info-title {
@@ -65,8 +73,15 @@
   margin-bottom: 5px;
 
   @include screen-sm-down {
-    background: rgba(255, 255, 255, 0.55);
-    padding: 5px 5px 5px 0;
+    background: rgba(255, 255, 255, 0.65);
+    padding: 4px 8px;
     margin-bottom: 0;
+  }
+
+  @include screen-xs-down {
+    .paragraph {
+      font-size: 14px !important;
+      line-height: 20px !important;
+    }
   }
 }

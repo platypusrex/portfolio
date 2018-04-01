@@ -26,9 +26,9 @@ export const ContactComponent = (props) => {
 	return (
 		<div className="contact">
 
-			<div className="contact__bg-image-wrapper">
-				<img className="contact__bg-image" src={robot} alt=""/>
-			</div>
+			{/*<div className="contact__bg-image-wrapper">*/}
+				{/*<img className="contact__bg-image" src={robot} alt=""/>*/}
+			{/*</div>*/}
 
 			<PageHeader
 				title="Contact"
