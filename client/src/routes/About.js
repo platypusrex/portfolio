@@ -7,6 +7,7 @@ import { LinkButton } from "../shared/components/LinkButton";
 import { Paragraph } from "../shared/components/Paragraph";
 import { withRouter } from 'react-router-dom';
 import arrow from '../assets/rotated-right-arrow.svg';
+import { scrollTo } from "../shared/utils/scrollTo";
 
 const paragraphs = {
 	first: 'I\'m a front end engineer and full stack web developer with a passion for building cool\n' +
@@ -90,8 +91,7 @@ export const About = compose(
 			props.history.push('/resume')
 		},
 		handleScrollToAbout: (props) => () => {
-			document.getElementById('page-header-cmp')
-				.scrollIntoView({behavior: 'smooth', block: 'start'})
+			scrollTo('page-header-cmp', 250);
 		}
 	})
 )(AboutComponent);
