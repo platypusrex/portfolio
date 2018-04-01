@@ -3,7 +3,7 @@
   height: 100%;
 
   @include screen-xs-down {
-    margin: 150px 0 50px;
+    margin: 75px 0 50px;
   }
 }
 
@@ -29,6 +29,7 @@
   margin: 0 0 5px;
 
   @include screen-xs-down {
+    margin-top: 10px;
     font-size: 52px;
   }
 }
