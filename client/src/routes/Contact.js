@@ -1,12 +1,24 @@
 import React from 'react';
+import { compose, withHandlers } from "recompose";
 import { Container } from "../shared/components/Container";
 import { PageHeader } from "../shared/components/PageHeader";
-import {Paragraph} from "../shared/components/Paragraph";
+import { Paragraph } from "../shared/components/Paragraph";
 import { SocialLink } from "../shared/components/SocialLink";
 import { Button } from "../shared/components/Button";
+import { withState } from "../shared/containers/withState";
+import { Input } from "../shared/components/Input";
 import robot from '../assets/badass_robot.jpg';
+import {sendEmail} from "../api/sendEmail";
 
-export const Contact = () => {
+const initialState = {
+	name: '',
+	email: '',
+	message: '',
+};
+
+export const ContactComponent = (props) => {
+	const {state, setState} = props;
+
 	return (
 		<div className="contact">
 
@@ -47,19 +59,33 @@ export const Contact = () => {
 
 					<div className="col-8_md-7_sm-12">
 						<div className="flex-container" style={{marginBottom: '20px'}}>
-							<input placeholder="Your Name" style={{width: '100%', padding: '15px', borderRadius: '3px', border: '1px solid'}}/>
+							<Input
+								placeholder="Your name"
+								value={state.name}
+								onChange={name => setState(ss => ({...ss, name}))}
+							/>
 						</div>
 
 						<div className="flex-container" style={{marginBottom: '20px'}}>
-							<input placeholder="Your Email" style={{width: '100%', padding: '15px', borderRadius: '3px', border: '1px solid'}}/>
+							<Input
+								placeholder="Your email"
+								type="email"
+								value={state.email}
+								onChange={email => setState(ss => ({...ss, email}))}
+							/>
 						</div>
 
 						<div className="flex-container" style={{marginBottom: '20px'}}>
-							<textarea placeholder="Your Message" style={{width: '100%', padding: '15px', borderRadius: '3px', border: '1px solid'}} rows={15}/>
+							<Input
+								placeholder="Your message"
+								textArea
+								value={state.message}
+								onChange={message => setState(ss => ({...ss, message}))}
+							/>
 						</div>
 
 						<div className="flex-container" style={{marginBottom: '20px', float: 'right'}}>
-							<Button>Send Message</Button>
+							<Button onClick={props.handleSendEmail}>Send Message</Button>
 						</div>
 					</div>
 				</div>
@@ -67,3 +93,17 @@ export const Contact = () => {
 		</div>
 	);
 };
+
+export const Contact = compose(
+	withState(initialState),
+	withHandlers({
+		handleSendEmail: (props) => async () => {
+			console.log(props.state);
+			const {name, email, message} = props.state;
+			const requestBody = {name, email, message};
+
+			const response = await sendEmail(requestBody);
+			console.log(response);
+		}
+	})
+)(ContactComponent);
