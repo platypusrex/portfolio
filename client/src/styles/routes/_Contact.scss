@@ -1,5 +1,4 @@
 .contact {
-  position: relative;
   height: 100%;
 }
 
@@ -43,6 +42,10 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+.contact__content {
+  padding: 0 65px;
 }
 
 .contact__content-wrapper {
