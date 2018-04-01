@@ -1,6 +1,10 @@
 .ia-page-error {
   position: relative;
   height: 100%;
+
+  @include screen-xs-down {
+    margin: 150px 0 50px;
+  }
 }
 
 .ia-page-error__content-wrapper {
