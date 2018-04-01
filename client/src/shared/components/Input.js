@@ -25,7 +25,7 @@ export const Input = (props) => {
 
 	const Error = (
 		<React.Fragment>
-			{error && <span className="input__error" style={{color: 'red'}}>{error}</span>}
+			{error && <span className="input__error">{error}</span>}
 		</React.Fragment>
 	);
 
