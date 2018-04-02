@@ -12,11 +12,21 @@ body,
   height: 100%;
 }
 
+//html {
+//  overflow-y: scroll;
+//}
+
 body {
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', 'Open Sans', Roboto, "Helvetica Neue", Helvetica,  sans-serif !important;
   overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent; /* make scrollbar transparent */
 }
 
 h1, h2, h3, h4, h5, h6 {

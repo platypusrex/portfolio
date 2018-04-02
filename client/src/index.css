@@ -3246,6 +3246,9 @@
   border-radius: 3px;
   background: url("./assets/gears.jpg") no-repeat center fixed;
   background-size: cover; }
+  @media only screen and (max-width: 1024px) {
+    .contact__content {
+      padding: 0 20px !important; } }
   @media only screen and (max-width: 576px) {
     .contact__content {
       padding: 0 10px !important;
@@ -3277,7 +3280,13 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', 'Open Sans', Roboto, "Helvetica Neue", Helvetica,  sans-serif !important;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  overflow-y: scroll; }
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+  /* make scrollbar transparent */ }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', 'Open Sans', Roboto, "Helvetica Neue", Helvetica,  sans-serif !important; }
