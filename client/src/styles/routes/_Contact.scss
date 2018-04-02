@@ -51,6 +51,10 @@
   background: url('./assets/gears.jpg') no-repeat center fixed;
   background-size: cover;
 
+  @include screen-md-down {
+    padding: 0 20px !important;
+  }
+
   @include screen-xs-down {
     padding: 0 10px !important;
     margin: 0 10px 10px;
