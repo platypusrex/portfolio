@@ -63,7 +63,7 @@ export const ContactComponent = (props) => {
 					<div className="col-8_md-7_sm-12">
 						<div className="flex-container" style={{marginBottom: '20px'}}>
 							<Input
-								placeholder="Your name"
+								placeholder="Your name *"
 								value={state.name}
 								onChange={name => setState(ss => ({...ss, name}))}
 								onFocus={props.handleInputFocus}
@@ -73,7 +73,7 @@ export const ContactComponent = (props) => {
 
 						<div className="flex-container" style={{marginBottom: '20px'}}>
 							<Input
-								placeholder="Your email"
+								placeholder="Your email *"
 								type="email"
 								value={state.email}
 								onChange={email => setState(ss => ({...ss, email}))}
@@ -84,7 +84,7 @@ export const ContactComponent = (props) => {
 
 						<div className="flex-container" style={{marginBottom: '20px'}}>
 							<Input
-								placeholder="Your message"
+								placeholder="Your message *"
 								textArea
 								value={state.message}
 								onChange={message => setState(ss => ({...ss, message}))}
