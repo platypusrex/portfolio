@@ -1,7 +1,18 @@
 import React from 'react';
 import { Container } from "../shared/components/Container";
 import { PageHeader } from "../shared/components/PageHeader";
-import {Paragraph} from "../shared/components/Paragraph";
+import { Paragraph } from "../shared/components/Paragraph";
+import { ResumeExperience } from "./ResumeExperience";
+import {
+	boomtown,
+	collegeOfCharleston,
+	fathomRealty,
+	interapptive,
+	massagebook,
+	tridentTechOne,
+	tridentTechTwo,
+	skills
+} from "../shared/constants/resumeConstants";
 
 export const Resume = (props) => {
 	return (
@@ -19,96 +30,85 @@ export const Resume = (props) => {
 			<Container>
 				<div className="grid">
 					<div className="col-12 grid">
+
 						<div className="col-3_md-12">
-							<h2 style={{marginTop: 0, textTransform: 'uppercase', marginBottom: '5px'}}>Summary</h2>
+							<h2 className="resume__section-title">Summary</h2>
 						</div>
-						<div className="col-9_md-12" style={{borderBottom: '1px solid #e9e9e9', marginBottom: '30px'}}>
+						<div className="resume_section-column col-9_md-12">
 							<Paragraph>
-								I am a talented front end engineer with a special interest in full stack web development. I have experience
+								I am a front end engineer with a special interest in full stack web development. I have experience
 								building mobile and web applications, from api integrations to sophisticated css animations. I am
 								trustworthy, ethical, and committed to overcoming new challenges and learning new things. I love to
-								build useful, usable, well-constructed web sites and applications and work alongside great people
-								who challenge me to grow as a developer and engineer.
+								build useful, usable, well-constructed web sites and applications and strive to work alongside great
+								people who challenge me to grow as a developer and engineer.
 							</Paragraph>
 						</div>
 
 						<div className="col-3_md-12">
-							<h2 style={{marginTop: 0, textTransform: 'uppercase'}}>
+							<h2 className="resume__section-title">Skillset</h2>
+						</div>
+						<div className="resume_section-column col-9_md-12">
+							<ul className="resume__skills-list">
+								{skills.map(skill => <li className="resume__skills">{skill}</li>)}
+							</ul>
+						</div>
+
+						<div className="col-3_md-12">
+							<h2 className="resume__section-title">
 								Work<br/>Experience
 							</h2>
 						</div>
-						<div className="col-9_md-12" style={{borderBottom: '1px solid #e9e9e9'}}>
-							<div>
-								<div className="flex-container" style={{alignItems: 'baseline', marginBottom: '15px'}}>
-									<h4 style={{textTransform: 'uppercase', margin: 0, fontSize: '18px'}}>
-										Fathom Realty
-										<small style={{textTransform: 'uppercase', fontWeight: 'lighter', fontSize: '12px', paddingLeft: '15px'}}>
-											Full Stack Engineer&nbsp;&nbsp;|&nbsp;&nbsp;May 2017 - Present
-										</small>
-									</h4>
-								</div>
+						<div className="resume_section-column col-9_md-12">
+							<ResumeExperience
+								title={fathomRealty.companyName}
+								subTitle={fathomRealty.title}
+								summary={fathomRealty.summary}
+								description={fathomRealty.description}
+							/>
 
-								<Paragraph>
-									Lorem ipsum dolor amet neutra intelligentsia butcher pabst flexitarian, ennui keytar. Chia sartorial
-									helvetica, banh mi readymade poke tumeric venmo XOXO leggings. Tilde small batch squid kogi,
-									humblebrag bushwick vegan copper mug selvage meggings letterpress tattooed. Yuccie vegan aesthetic
-									glossier.
-								</Paragraph>
-							</div>
+							<ResumeExperience
+								title={interapptive.companyName}
+								subTitle={interapptive.title}
+								summary={interapptive.summary}
+								description={interapptive.description}
+							/>
 
-							<div>
-								<div className="flex-container" style={{alignItems: 'baseline', marginBottom: '15px'}}>
-									<h4 style={{textTransform: 'uppercase', margin: 0, fontSize: '18px'}}>
-										Interapptive Solutions
-										<small style={{textTransform: 'uppercase', fontWeight: 'lighter', fontSize: '12px', paddingLeft: '15px'}}>
-											Full Stack Engineer&nbsp;&nbsp;|&nbsp;&nbsp;July 2015 - May 2017
-										</small>
-									</h4>
-								</div>
+							<ResumeExperience
+								title={massagebook.companyName}
+								subTitle={massagebook.title}
+								summary={massagebook.summary}
+								description={massagebook.description}
+							/>
 
-								<Paragraph>
-									Lorem ipsum dolor amet neutra intelligentsia butcher pabst flexitarian, ennui keytar. Chia sartorial
-									helvetica, banh mi readymade poke tumeric venmo XOXO leggings. Tilde small batch squid kogi,
-									humblebrag bushwick vegan copper mug selvage meggings letterpress tattooed. Yuccie vegan aesthetic
-									glossier.
-								</Paragraph>
-							</div>
+							<ResumeExperience
+								title={boomtown.companyName}
+								subTitle={boomtown.title}
+								summary={boomtown.summary}
+								description={boomtown.description}
+							/>
+						</div>
 
-							<div>
-								<div className="flex-container" style={{alignItems: 'baseline', marginBottom: '15px'}}>
-									<h4 style={{textTransform: 'uppercase', margin: 0, fontSize: '18px'}}>
-										Massagebook
-										<small style={{textTransform: 'uppercase', fontWeight: 'lighter', fontSize: '12px', paddingLeft: '15px'}}>
-											Front End Engineer&nbsp;&nbsp;|&nbsp;&nbsp;Nov 2015 - July 2017
-										</small>
-									</h4>
-								</div>
+						<div className="col-3_md-12">
+							<h2 className="resume__section-title">Education</h2>
+						</div>
+						<div className="resume_section-column col-9_md-12">
+							<ResumeExperience
+								title={tridentTechOne.title}
+								subTitle={tridentTechOne.subTitle}
+								summary={tridentTechOne.summary}
+							/>
 
-								<Paragraph>
-									Lorem ipsum dolor amet neutra intelligentsia butcher pabst flexitarian, ennui keytar. Chia sartorial
-									helvetica, banh mi readymade poke tumeric venmo XOXO leggings. Tilde small batch squid kogi,
-									humblebrag bushwick vegan copper mug selvage meggings letterpress tattooed. Yuccie vegan aesthetic
-									glossier.
-								</Paragraph>
-							</div>
+							<ResumeExperience
+								title={collegeOfCharleston.title}
+								subTitle={collegeOfCharleston.subTitle}
+								summary={collegeOfCharleston.summary}
+							/>
 
-							<div>
-								<div className="flex-container" style={{alignItems: 'baseline', marginBottom: '15px'}}>
-									<h4 style={{textTransform: 'uppercase', margin: 0, fontSize: '18px'}}>
-										Boomtown
-										<small style={{textTransform: 'uppercase', fontWeight: 'lighter', fontSize: '12px', paddingLeft: '15px'}}>
-											Systems/Network Administrator&nbsp;&nbsp;|&nbsp;&nbsp;June 2015 - Nov 2015
-										</small>
-									</h4>
-								</div>
-
-								<Paragraph>
-									Lorem ipsum dolor amet neutra intelligentsia butcher pabst flexitarian, ennui keytar. Chia sartorial
-									helvetica, banh mi readymade poke tumeric venmo XOXO leggings. Tilde small batch squid kogi,
-									humblebrag bushwick vegan copper mug selvage meggings letterpress tattooed. Yuccie vegan aesthetic
-									glossier.
-								</Paragraph>
-							</div>
+							<ResumeExperience
+								title={tridentTechTwo.title}
+								subTitle={tridentTechTwo.subTitle}
+								summary={tridentTechTwo.summary}
+							/>
 						</div>
 					</div>
 				</div>
