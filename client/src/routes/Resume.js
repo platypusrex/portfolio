@@ -20,14 +20,15 @@ export const Resume = (props) => {
 				<div className="grid">
 					<div className="col-12 grid">
 						<div className="col-3_md-12">
-							<h2 style={{marginTop: 0, textTransform: 'uppercase'}}>Summary</h2>
+							<h2 style={{marginTop: 0, textTransform: 'uppercase', marginBottom: '5px'}}>Summary</h2>
 						</div>
 						<div className="col-9_md-12" style={{borderBottom: '1px solid #e9e9e9', marginBottom: '30px'}}>
 							<Paragraph>
-								Lorem ipsum dolor amet neutra intelligentsia butcher pabst flexitarian, ennui keytar. Chia sartorial
-								helvetica, banh mi readymade poke tumeric venmo XOXO leggings. Tilde small batch squid kogi,
-								humblebrag bushwick vegan copper mug selvage meggings letterpress tattooed. Yuccie vegan aesthetic
-								glossier.
+								I am a talented front end engineer with a special interest in full stack web development. I have experience
+								building mobile and web applications, from api integrations to sophisticated css animations. I am
+								trustworthy, ethical, and committed to overcoming new challenges and learning new things. I love to
+								build useful, usable, well-constructed web sites and applications and work alongside great people
+								who challenge me to grow as a developer and engineer.
 							</Paragraph>
 						</div>
 
