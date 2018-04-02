@@ -10,7 +10,6 @@ import { Input } from "../shared/components/Input";
 import { sendEmail } from "../api/sendEmail";
 import { validateFormFields } from "../shared/utils/validateFormFields";
 import swal from 'sweetalert';
-import robot from '../assets/badass_robot.jpg';
 
 const initialState = {
 	name: '',
@@ -79,7 +78,7 @@ export const ContactComponent = (props) => {
 								value={state.email}
 								onChange={email => setState(ss => ({...ss, email}))}
 								onFocus={props.handleInputFocus}
-								error={state.errors.name}
+								error={state.errors.email}
 							/>
 						</div>
 
