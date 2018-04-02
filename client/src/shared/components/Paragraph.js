@@ -10,12 +10,12 @@ const textSize = {
 };
 
 export const Paragraph = (props) => {
-	const {prefixCls, className, noMargin} = props;
+	const {prefixCls, className, noMargin, style} = props;
 	const sizeClass = getSizeClass(props);
 	const paragraphClass = `${prefixCls} ${className ? className : ''} ${sizeClass}`;
 
 	return (
-		<p className={paragraphClass} style={{marginBottom: noMargin ? 0 : null}}>
+		<p className={paragraphClass} style={{marginBottom: noMargin ? 0 : null, ...style}}>
 			{props.children}
 		</p>
 	);
@@ -45,5 +45,6 @@ function getSizeClass (props) {
 Paragraph.propTypes = {
 	className: PropTypes.string,
 	size: PropTypes.oneOf(Object.keys(textSize).map(key => textSize[key])),
-	noMargin: PropTypes.bool
+	noMargin: PropTypes.bool,
+	style: PropTypes.object
 };
