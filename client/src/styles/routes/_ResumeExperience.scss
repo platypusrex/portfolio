@@ -1,0 +1,38 @@
+.resume-experience__title-wrapper {
+  align-items: baseline;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+
+  @include screen-xs-down {
+    flex-direction: column;
+  }
+}
+
+.resume-experience__company {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 18px;
+}
+
+.resume-experience__position {
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size: 12px;
+  padding-left: 15px;
+
+  @include screen-xs-down {
+    padding-left: 0;
+  }
+}
+
+.resume-experience__list {
+  @include screen-xs-down {
+    padding-left: 18px;
+  }
+}
+
+.resume-experience__list-item {
+  font-size: 14px;
+  line-height: 22px;
+  padding-bottom: 5px;
+}
