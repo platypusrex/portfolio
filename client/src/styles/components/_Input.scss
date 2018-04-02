@@ -11,12 +11,12 @@
   padding: 15px;
   border-radius: 3px;
   border: 1px solid;
-  transition: all .3s ease-in-out;
+  transition: all .15s ease-in-out;
 
   &.error {
     border-color: $red;
     background: lighten($red, 30%);
-    transition: all .3s ease-in-out;
+    transition: all .15s ease-in-out;
   }
 }
 
