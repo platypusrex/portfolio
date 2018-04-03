@@ -20,7 +20,10 @@ export const PageHeader = (props) => {
 };
 
 PageHeader.propTypes = {
-	title: PropTypes.string.isRequired,
+	title: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.node
+	]).isRequired,
 	subTitle: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.node

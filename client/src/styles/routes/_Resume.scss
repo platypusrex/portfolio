@@ -37,3 +37,36 @@
     content: "\2219";
   }
 }
+
+.resume__header-title {
+  position: relative;
+
+  @include screen-xs-down {
+    margin-top: 20px;
+  }
+}
+
+.resume__pdf-btn {
+  margin-right: 20px;
+}
+
+.resume__header-btns {
+  position: absolute;
+  top: 8px;
+  right: -115px;
+
+  @include screen-xs-down {
+    display: none;
+  }
+}
+
+.resume__content-pdf-btns {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  display: none;
+
+  @include screen-xs-down {
+    display: flex;
+  }
+}

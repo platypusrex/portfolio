@@ -1,9 +1,15 @@
+export const summary = 'I am a front-end engineer providing a seamless bridge between design and the back-end, currently ' +
+	'based out of Charleston, South Carolina. Experience with developing single-page applications in ' +
+	'React and Angular, mobile application development, api integration, and ui/ux design. Specialties ' +
+	'include full-stack JavaScript development, responsive web design, mobile optimization, and scalable, ' +
+	'performant CSS.';
+
 export const skills = [
 	'Typescript',
 	'ES2017',
 	'Javascript',
 	'React',
-	'Angular 4',
+	'Angular 2+',
 	'React-Native',
 	'Ionic 2+',
 	'Redux',

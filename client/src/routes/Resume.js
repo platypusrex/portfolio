@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from "../shared/components/Container";
 import { PageHeader } from "../shared/components/PageHeader";
 import { Paragraph } from "../shared/components/Paragraph";
+import { Icon } from "../shared/components/Icon";
 import { ResumeExperience } from "./ResumeExperience";
 import {
 	boomtown,
@@ -11,14 +12,47 @@ import {
 	massagebook,
 	tridentTechOne,
 	tridentTechTwo,
-	skills
+	skills, summary
 } from "../shared/constants/resumeConstants";
+import { resumeDocDefinition } from "../shared/constants/pdfDocDefinition";
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+const pdfName = 'frank_cooke_resume.pdf';
 
 export const Resume = (props) => {
+	const pdfButtons = (
+		<React.Fragment>
+			<a
+				className="resume__pdf-btn"
+				title="print"
+				onClick={() => pdfMake.createPdf(resumeDocDefinition).print()}
+			>
+				<Icon className="ti-printer" size={24}/>
+			</a>
+			<a
+				title="download"
+				onClick={() => pdfMake.createPdf(resumeDocDefinition).download(pdfName)}
+			>
+				<Icon className="ti-download" size={24}/>
+			</a>
+		</React.Fragment>
+	);
+
+	const headerTitle = (
+		<div className="resume__header-title flex-container">
+			Frank G. Cooke III
+			<div className="resume__header-btns flex-container">
+				{pdfButtons}
+			</div>
+		</div>
+	);
+
 	return (
 		<div className="resume">
 			<PageHeader
-				title="Frank G. Cooke III"
+				title={headerTitle}
 				subTitle={(
 					<React.Fragment>
 						frankcooke79@gmail.com&nbsp;&nbsp;|&nbsp;&nbsp;(843) 303-6284
@@ -26,6 +60,10 @@ export const Resume = (props) => {
 					</React.Fragment>
 				)}
 			/>
+
+			<div className="resume__content-pdf-btns">
+				{pdfButtons}
+			</div>
 
 			<Container>
 				<div className="grid">
@@ -36,11 +74,7 @@ export const Resume = (props) => {
 						</div>
 						<div className="resume_section-column col-9_md-12">
 							<Paragraph>
-								I am a front-end engineer providing a seamless bridge between design and the back-end, currently
-								based out of Charleston, South Carolina. Experience with developing single-page applications in
-								React and Angular, mobile application development, api integration, and ui/ux design. Specialties
-								include full-stack JavaScript development, responsive web design, mobile optimization, and scalable,
-								performant CSS.
+								{summary}
 							</Paragraph>
 						</div>
 
@@ -49,7 +83,7 @@ export const Resume = (props) => {
 						</div>
 						<div className="resume_section-column col-9_md-12">
 							<ul className="resume__skills-list">
-								{skills.map(skill => <li className="resume__skills">{skill}</li>)}
+								{skills.map(skill => <li key={skill} className="resume__skills">{skill}</li>)}
 							</ul>
 						</div>
 
