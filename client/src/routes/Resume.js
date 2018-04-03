@@ -36,11 +36,11 @@ export const Resume = (props) => {
 						</div>
 						<div className="resume_section-column col-9_md-12">
 							<Paragraph>
-								I am a front end engineer with a special interest in full stack web development. I have experience
-								building mobile and web applications, from api integrations to sophisticated css animations. I am
-								trustworthy, ethical, and committed to overcoming new challenges and learning new things. I love to
-								build useful, usable, well-constructed web sites and applications and strive to work alongside great
-								people who challenge me to grow as a developer and engineer.
+								I am a front-end engineer providing a seamless bridge between design and the back-end, currently
+								based out of Charleston, South Carolina. Experience with developing single-page applications in
+								React and Angular, mobile application development, api integration, and ui/ux design. Specialties
+								include full-stack JavaScript development, responsive web design, mobile optimization, and scalable,
+								performant CSS.
 							</Paragraph>
 						</div>
 

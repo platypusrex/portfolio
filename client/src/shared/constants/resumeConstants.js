@@ -37,19 +37,19 @@ export const fathomRealty = {
 	summary: 'Built a real estate transaction management system software as a service web application to manage\n' +
 	'all back office needs for real estate brokerages.',
 	description: [
-		'Assisted in planning, development, and execution of feature requirements based on' +
+		'Assisted in planning, development, and execution of feature requirements based on ' +
 		'information gathered from product owners/clients',
 		'Responsible for application design, user experience and user interfaces (UX, UI)',
-		'Created reusable component library with API documentation on component use, and business logic' +
+		'Created reusable component library with API documentation on component use, and business logic ' +
 		'event handlers and utilities',
-		'Composed styles using Sass with BEM methodology to build modular, scalar, and manageable/reusable' +
+		'Composed styles using Sass with BEM methodology to build modular, scalar, and manageable/reusable ' +
 		'CSS styles',
-		'Organized and architected the client application which relied heavily on patterns utilizing' +
+		'Organized and architected the client application which relied heavily on patterns utilizing ' +
 		'stateless functional components combined with Higher Order Components',
-		'Responsible for creating and organizing GraphQL fragments, queries, mutations, and related' +
+		'Responsible for creating and organizing GraphQL fragments, queries, mutations, and related ' +
 		'Higher Order Components for connecting the front end to our data',
 		'Assisted in the development of API and database schema design and migrations',
-		'Tech Stack: React, Typescript, Apollo, Recompose, Sass, Gridlex, Ant Design' +
+		'Tech Stack: React, Typescript, Apollo, Recompose, Sass, Gridlex, Ant Design ' +
 		'(UI component library), GraphQL, Node.js, Koa, Postgraphile, PostgreSQL'
 	]
 };
@@ -85,7 +85,7 @@ export const massagebook = {
 
 export const boomtown = {
 	companyName: 'BoomTown',
-	title: 'Systems/Network Administrator',
+	title: 'Systems/Network Administrator | JUN 2013 - NOV 2015',
 	summary: 'Managed a small team to support all in house system and network needs',
 	description: [
 		'Installed and configured Juniper and Fortigate firewalls',

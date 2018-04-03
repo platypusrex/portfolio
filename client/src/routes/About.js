@@ -18,10 +18,10 @@ const paragraphs = {
 		'of instruments, wrenching/riding my 1969 Honda cb350, or out in the water trying to catch a wave or two.\n' +
 		'As a true lover of the outdoors and travel, I try to find time to explore my local surroundings and the\n' +
 		'world as much as time permits.',
-	third: 'I want to be involved in projects that I can be proud of, work with amazing people, and advance my\n' +
+	third: 'I want to be involved in projects that I can be proud of, work with amazing and passionate people, and advance my\n' +
 		'development career. I see teamwork, open communication, and compassion as key values for building\n' +
 		'successful products. I realize that adaptability, curiosity, and humility are the most\n' +
-		'important qualities for succeeding in the tech industry.'
+		'important qualities for succeeding in the tech industry and life in general.'
 };
 
 export const AboutComponent = (props) => {
