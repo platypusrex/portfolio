@@ -29,14 +29,14 @@ export const Resume = (props) => {
 				title="print"
 				onClick={() => pdfMake.createPdf(resumeDocDefinition).print()}
 			>
-				<Icon className="ti-printer" size={24}/>
+				<Icon className="ti-printer" size={22}/>
 			</a>
 			<a
 				className="resume__pdf-btn"
 				title="download"
 				onClick={() => pdfMake.createPdf(resumeDocDefinition).download(pdfName)}
 			>
-				<Icon className="ti-download" size={24}/>
+				<Icon className="ti-download" size={22}/>
 			</a>
 		</React.Fragment>
 	);
@@ -56,7 +56,9 @@ export const Resume = (props) => {
 				title={headerTitle}
 				subTitle={(
 					<React.Fragment>
-						frankcooke79@gmail.com&nbsp;&nbsp;|&nbsp;&nbsp;(843) 303-6284
+						<a className="resume__link" href="mailto:frankcooke79@gmail.com">frankcooke79@gmail.com</a>
+						&nbsp;&nbsp;|&nbsp;&nbsp;
+						<a className="resume__link" href="tel:+8433036284">(843) 303-6284</a>
 						<br/>Charleston, SC
 					</React.Fragment>
 				)}
