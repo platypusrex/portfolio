@@ -20,11 +20,7 @@ export const ResumeExperience = (props) => {
 			{description &&
 			<div>
 				<ul className="resume-experience__list">
-					{description.map((item, i) => (
-						<li key={i} className="resume-experience__list-item">
-							{typeof item === 'string' ? item : item.text}
-						</li>
-					))}
+					{description.map((item, i) => <li key={i} className="resume-experience__list-item">{item}</li>)}
 				</ul>
 			</div>}
 		</div>
@@ -35,6 +31,6 @@ ResumeExperience.propTypes = {
 	title: PropTypes.string.isRequired,
 	subTitle: PropTypes.string,
 	summary: PropTypes.string,
-	description:PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
+	description: PropTypes.arrayOf(PropTypes.string)
 };
 

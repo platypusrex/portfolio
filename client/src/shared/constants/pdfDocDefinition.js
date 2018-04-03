@@ -7,7 +7,11 @@ import {
 	boomtown,
 	tridentTechOne,
 	collegeOfCharleston,
-	tridentTechTwo
+	tridentTechTwo,
+	fathomList,
+	iaList,
+	mbList,
+	btList
 } from "./resumeConstants";
 import { myEmail, myLocation, myName, myNumber } from "./appConstants";
 
@@ -123,7 +127,7 @@ const fathomExperience = [
 		fathomRealty.companyName,
 		fathomRealty.title,
 		fathomRealty.summary,
-		fathomRealty.description
+		fathomList
 	)
 ];
 
@@ -132,7 +136,7 @@ const interapptiveExperience = [
 		interapptive.companyName,
 		interapptive.title,
 		interapptive.summary,
-		interapptive.description
+		iaList
 	)
 ];
 
@@ -141,7 +145,7 @@ const massagebookExperience =	[
 		massagebook.companyName,
 		massagebook.title,
 		massagebook.summary,
-		massagebook.description
+		mbList
 	)
 ];
 const boomtownExperience = [
@@ -149,7 +153,7 @@ const boomtownExperience = [
 		boomtown.companyName,
 		boomtown.title,
 		boomtown.summary,
-		boomtown.description
+		btList
 	)
 ];
 
