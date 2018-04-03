@@ -32,6 +32,7 @@ export const Resume = (props) => {
 				<Icon className="ti-printer" size={24}/>
 			</a>
 			<a
+				className="resume__pdf-btn"
 				title="download"
 				onClick={() => pdfMake.createPdf(resumeDocDefinition).download(pdfName)}
 			>

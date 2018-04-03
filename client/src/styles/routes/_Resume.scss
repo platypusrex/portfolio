@@ -47,12 +47,28 @@
 }
 
 .resume__pdf-btn {
-  margin-right: 20px;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s ease-in-out;
+
+  &:hover {
+    background: #f2f2f2;
+    transition: all .15s ease-in-out;
+  }
+
+  &:first-child {
+    margin-right: 5px;
+  }
 }
 
 .resume__header-btns {
   position: absolute;
-  top: 8px;
+  top: 0;
   right: -115px;
 
   @include screen-xs-down {
@@ -62,8 +78,8 @@
 
 .resume__content-pdf-btns {
   position: absolute;
-  top: 15px;
-  right: 25px;
+  top: 5px;
+  right: 5px;
   display: none;
 
   @include screen-xs-down {
