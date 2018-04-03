@@ -46,6 +46,11 @@
   }
 }
 
+.resume__link {
+  text-decoration: none;
+  color: $blue;
+}
+
 .resume__pdf-btn {
   cursor: pointer;
   width: 42px;
