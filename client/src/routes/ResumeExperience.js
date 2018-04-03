@@ -20,7 +20,7 @@ export const ResumeExperience = (props) => {
 			{description &&
 			<div>
 				<ul className="resume-experience__list">
-					{description.map(item => <li key={item} className="resume-experience__list-item">{item}</li>)}
+					{description.map((item, i) => <li key={i} className="resume-experience__list-item">{item}</li>)}
 				</ul>
 			</div>}
 		</div>

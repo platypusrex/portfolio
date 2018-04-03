@@ -9,6 +9,7 @@ import { withState } from "../shared/containers/withState";
 import { Input } from "../shared/components/Input";
 import { sendEmail } from "../api/sendEmail";
 import { validateFormFields } from "../shared/utils/validateFormFields";
+import { myEmail, myLocation, myNumber, socialLinks } from "../shared/constants/appConstants";
 import swal from 'sweetalert';
 
 const initialState = {
@@ -24,10 +25,6 @@ export const ContactComponent = (props) => {
 
 	return (
 		<div className="contact">
-
-			{/*<div className="contact__bg-image-wrapper">*/}
-				{/*<img className="contact__bg-image" src={robot} alt=""/>*/}
-			{/*</div>*/}
 
 			<PageHeader
 				title="Contact"
@@ -45,23 +42,23 @@ export const ContactComponent = (props) => {
 						<div className="contact__contact-info-wrapper flex-container column">
 							<div className="contact__contact-info flex-container column">
 								<Paragraph className="contact__contact-info-title" noMargin>Contact info:</Paragraph>
-								<Paragraph noMargin>frankcooke79@gmail.com</Paragraph>
-								<Paragraph noMargin>(843) 303-6284</Paragraph>
-								<Paragraph noMargin>Charleston, SC</Paragraph>
+								<Paragraph noMargin>{myEmail.display}</Paragraph>
+								<Paragraph noMargin>{myNumber.display}</Paragraph>
+								<Paragraph noMargin>{myLocation}</Paragraph>
 							</div>
 							<div className="contact__social-link-wrapper flex-container center-row-vertical">
 								<SocialLink
-									url="mailto:frankcooke79@gmail.com"
+									url={myEmail.link}
 									icon="ti-email"
 									style={{marginRight: '12px'}}
 								/>
 								<SocialLink
-									url="https://www.linkedin.com/in/frank-cooke-82562852/"
+									url={socialLinks.linkedin}
 									icon="ti-linkedin"
 									style={{marginRight: '12px'}}
 								/>
 								<SocialLink
-									url="https://github.com/platypusrex"
+									url={socialLinks.github}
 									icon="ti-github"
 								/>
 							</div>
@@ -135,7 +132,7 @@ export const Contact = compose(
 				setState(initialState);
 				swal({
 					title: 'Message sent!',
-					text: `Thanks and I'll get back with you as soon as I can!`,
+					text: `I'll get back with you as soon as I can!`,
 					icon: 'success',
 				});
 			} catch (err) {

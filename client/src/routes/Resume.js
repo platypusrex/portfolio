@@ -12,8 +12,10 @@ import {
 	massagebook,
 	tridentTechOne,
 	tridentTechTwo,
-	skills, summary
+	skills,
+	summary
 } from "../shared/constants/resumeConstants";
+import { myEmail, myLocation, myName, myNumber } from "../shared/constants/appConstants";
 import { resumeDocDefinition } from "../shared/constants/pdfDocDefinition";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
@@ -21,7 +23,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const pdfName = 'frank_cooke_resume.pdf';
 
-export const Resume = (props) => {
+export const Resume = () => {
 	const pdfButtons = (
 		<React.Fragment>
 			<a
@@ -43,7 +45,7 @@ export const Resume = (props) => {
 
 	const headerTitle = (
 		<div className="resume__header-title flex-container">
-			Frank G. Cooke III
+			{myName}
 			<div className="resume__header-btns flex-container">
 				{pdfButtons}
 			</div>
@@ -56,10 +58,10 @@ export const Resume = (props) => {
 				title={headerTitle}
 				subTitle={(
 					<React.Fragment>
-						<a className="resume__link" href="mailto:frankcooke79@gmail.com">frankcooke79@gmail.com</a>
+						<a className="resume__link" href={myEmail.link}>{myEmail.display}</a>
 						&nbsp;&nbsp;|&nbsp;&nbsp;
-						<a className="resume__link" href="tel:+8433036284">(843) 303-6284</a>
-						<br/>Charleston, SC
+						<a className="resume__link" href={myNumber.link}>{myNumber.display}</a>
+						<br/>{myLocation}
 					</React.Fragment>
 				)}
 			/>

@@ -1,7 +1,15 @@
 import {
-	summary, skills, fathomRealty, interapptive, massagebook, boomtown, tridentTechOne,
-	collegeOfCharleston, tridentTechTwo
+	summary,
+	skills,
+	fathomRealty,
+	interapptive,
+	massagebook,
+	boomtown,
+	tridentTechOne,
+	collegeOfCharleston,
+	tridentTechTwo
 } from "./resumeConstants";
+import { myEmail, myLocation, myName, myNumber } from "./appConstants";
 
 const info = {title: 'Frank Cooke Resume'};
 const pageMargins = [30, 30, 30, 30];
@@ -30,15 +38,15 @@ const header = {
 	columns: [
 		{
 			style: styles.headerTitle,
-			text: 'Frank G Cooke'
+			text: myName
 		},
 		{
 			alignment: 'right',
 			style: styles.headerContact,
 			stack: [
-				'frankcooke79@gmail.com',
-				'(843) 303-6284',
-				'Charleston, SC'
+				myEmail.display,
+				myNumber.display,
+				myLocation
 			]
 		}
 	]
