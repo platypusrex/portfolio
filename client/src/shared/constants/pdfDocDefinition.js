@@ -7,11 +7,7 @@ import {
 	boomtown,
 	tridentTechOne,
 	collegeOfCharleston,
-	tridentTechTwo,
-	fathomList,
-	iaList,
-	mbList,
-	btList
+	tridentTechTwo
 } from "./resumeConstants";
 import { myEmail, myLocation, myName, myNumber } from "./appConstants";
 
@@ -96,7 +92,8 @@ const skillsContent = () => {
 };
 
 const experienceContentGenerator = (title, subTitle, summary, description) => {
-	const list = description ? {style: {fontSize: 11}, ul: description} : '';
+	const descCopy = description && description.length ? [...description] : [];
+	const list = descCopy.length ? {style: {fontSize: 11}, ul: descCopy} : '';
 
 	return {
 		stack: [
@@ -127,7 +124,7 @@ const fathomExperience = [
 		fathomRealty.companyName,
 		fathomRealty.title,
 		fathomRealty.summary,
-		fathomList
+		fathomRealty.description
 	)
 ];
 
@@ -136,7 +133,7 @@ const interapptiveExperience = [
 		interapptive.companyName,
 		interapptive.title,
 		interapptive.summary,
-		iaList
+		interapptive.description
 	)
 ];
 
@@ -145,7 +142,7 @@ const massagebookExperience =	[
 		massagebook.companyName,
 		massagebook.title,
 		massagebook.summary,
-		mbList
+		massagebook.description
 	)
 ];
 const boomtownExperience = [
@@ -153,7 +150,7 @@ const boomtownExperience = [
 		boomtown.companyName,
 		boomtown.title,
 		boomtown.summary,
-		btList
+		boomtown.description
 	)
 ];
 
