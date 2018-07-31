@@ -11,6 +11,7 @@
   margin: 0 0;
   background: url('./assets/me_mountain.jpg') no-repeat center 65% fixed;
   background-size: cover;
+  transform: translate3d(0,0,0);
   transition: all .15s ease-in-out;
 
   @include screen-sm-down {
