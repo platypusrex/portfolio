@@ -2541,7 +2541,7 @@
   padding: 0 4px; }
 
 .content-container {
-  padding: 0 150px; }
+  padding: 0 100px; }
   @media only screen and (max-width: 1024px) {
     .content-container {
       padding: 0 80px !important; } }
@@ -2893,7 +2893,8 @@
   cursor: pointer;
   background: #fff;
   color: rgba(0, 0, 0, 0.8);
-  transition: all .15s ease-in-out; }
+  transition: all .15s ease-in-out;
+  text-decoration: none; }
   .social-link:hover {
     color: #fff;
     background: rgba(0, 0, 0, 0.8);
@@ -2987,6 +2988,7 @@
   margin: 0 0;
   background: url("./assets/me_mountain.jpg") no-repeat center 65% fixed;
   background-size: cover;
+  transform: translate3d(0, 0, 0);
   transition: all .15s ease-in-out; }
   @media only screen and (max-width: 768px) {
     .about__jumbotron {
@@ -3050,8 +3052,13 @@
     justify-content: center; } }
 
 .ia-page-error {
-  position: relative;
-  height: 100%; }
+  position: fixed;
+  height: 100%;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
   @media only screen and (max-width: 576px) {
     .ia-page-error {
       margin: 50px 0; } }
@@ -3271,8 +3278,114 @@
     font-size: 14px !important;
     line-height: 20px !important; } }
 
-html,
-body,
+.contact__social-link-wrapper {
+  margin-top: 5px; }
+
+.resume__section-title {
+  margin-top: 0;
+  text-transform: uppercase;
+  margin-bottom: 5px; }
+
+.resume_section-column {
+  border-bottom: 1px solid #e9e9e9;
+  margin-bottom: 30px; }
+  .resume_section-column:last-child {
+    border-bottom: none;
+    margin-bottom: 0; }
+
+.resume__skills-list {
+  position: relative;
+  top: -10px;
+  width: 100%;
+  margin: 0 0 30px 0;
+  padding: 0 0 0 10px;
+  display: inline-block;
+  list-style-type: none; }
+
+.resume__skills {
+  display: inline-block;
+  margin: 0 50px 0 0;
+  padding: 5px 0 0 0;
+  line-height: 21px;
+  min-width: 200px; }
+  .resume__skills:before {
+    position: relative;
+    left: -10px;
+    content: "\2219"; }
+
+.resume__header-title {
+  position: relative; }
+  @media only screen and (max-width: 576px) {
+    .resume__header-title {
+      margin-top: 20px; } }
+
+.resume__link {
+  text-decoration: none;
+  color: #188DCB; }
+
+.resume__pdf-btn {
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s ease-in-out; }
+  .resume__pdf-btn:hover {
+    background: #f2f2f2;
+    transition: all .15s ease-in-out; }
+  .resume__pdf-btn:first-child {
+    margin-right: 5px; }
+
+.resume__header-btns {
+  position: absolute;
+  top: 0;
+  right: -115px; }
+  @media only screen and (max-width: 576px) {
+    .resume__header-btns {
+      display: none; } }
+
+.resume__content-pdf-btns {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: none; }
+  @media only screen and (max-width: 576px) {
+    .resume__content-pdf-btns {
+      display: flex; } }
+
+.resume-experience__title-wrapper {
+  align-items: baseline;
+  margin-bottom: 15px;
+  text-transform: uppercase; }
+  @media only screen and (max-width: 576px) {
+    .resume-experience__title-wrapper {
+      flex-direction: column; } }
+
+.resume-experience__company {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 18px; }
+
+.resume-experience__position {
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size: 12px;
+  padding-left: 15px; }
+  @media only screen and (max-width: 576px) {
+    .resume-experience__position {
+      padding-left: 0; } }
+
+@media only screen and (max-width: 576px) {
+  .resume-experience__list {
+    padding-left: 18px; } }
+
+.resume-experience__list-item {
+  font-size: 14px;
+  line-height: 22px;
+  padding-bottom: 5px; }
+
 #root {
   height: 100%; }
 
@@ -3288,8 +3401,7 @@ body {
 
 ::-webkit-scrollbar {
   width: 0;
-  background: transparent;
-  /* make scrollbar transparent */ }
+  background: transparent; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', 'Open Sans', Roboto, "Helvetica Neue", Helvetica,  sans-serif !important; }
