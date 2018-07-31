@@ -1,6 +1,11 @@
 .ia-page-error {
-  position: relative;
+  position: fixed;
   height: 100%;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @include screen-xs-down {
     margin: 50px 0;
