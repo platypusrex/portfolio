@@ -1,0 +1,5 @@
+fragment SocialLink on SocialLink {
+  href
+  icon
+  target
+}

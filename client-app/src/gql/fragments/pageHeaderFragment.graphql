@@ -1,0 +1,6 @@
+fragment PageHeader on PageHeader {
+  title
+  description {
+    json
+  }
+}

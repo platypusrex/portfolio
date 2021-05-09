@@ -1,0 +1,6 @@
+fragment NavLink on NavLink {
+  title
+  description
+  icon
+  href
+}

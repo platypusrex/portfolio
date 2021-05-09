@@ -1,0 +1,5 @@
+fragment Hero on Asset {
+  url
+  description
+  title
+}
