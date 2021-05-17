@@ -21,7 +21,7 @@ export const Menu: React.FC<MenuProps> = ({ navLinks }) => {
       borderColor="gray.100"
       borderRight="1px solid #e8e8e8"
       position="fixed"
-      minW="200px"
+      w="200px"
       h="100vh"
       transition="transform 0.5s ease-in-out"
       transform={{ base: isMenuOpen ? 'translateX(0)' : 'translateX(-200px)', md: 'translateX(0)' }}

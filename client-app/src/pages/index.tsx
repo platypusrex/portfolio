@@ -1,6 +1,10 @@
+import { useRef } from 'react';
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { Box, Grid, GridItem, Text } from '@chakra-ui/react';
+import { ScrollButton } from 'components/ScrollButton';
+import { Arrow } from 'components/Arrow';
+import { HelloWorld } from 'components/HelloWorld';
 import { Hero } from 'components/Hero';
 import { PageHeader } from 'components/PageHeader';
 import { LinkButton } from 'components/LinkButton';
@@ -22,6 +26,7 @@ const contentOptions: Options = {
 };
 
 const IndexPage = () => {
+  const aboutSectionRef = useRef(null);
   const { content, pageHeader, hero, heroMobile } = usePage(ABOUT_PAGE_ID);
   const isMobile = useBreakpointValue({ base: true, lg: false });
 
@@ -57,8 +62,12 @@ const IndexPage = () => {
 
   return (
     <>
+      <ScrollButton scrollElementRef={aboutSectionRef}>
+        <HelloWorld />
+        <Arrow />
+      </ScrollButton>
       <Hero alt="about-hero-img" src={{ base: heroMobile?.url || '', md: hero?.url || '' }} />
-      <Box h="100vh">
+      <Box minH="100vh" ref={aboutSectionRef}>
         <PageHeader {...pageHeader} />
         <Box padding={{ base: '0 40px', md: '0 80px', lg: '0 50px 0 150px' }}>
           <Grid templateColumns="repeat(5, 1fr)">{isMobile ? Content.reverse() : Content}</Grid>

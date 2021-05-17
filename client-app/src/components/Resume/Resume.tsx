@@ -17,8 +17,8 @@ export interface ResumeProps {
 }
 
 export const Resume: React.FC<ResumeProps> = ({
-  resumeSection: { name, heading, contentCollection },
-}) => {
+                                                resumeSection: { name, heading, contentCollection },
+                                              }) => {
   const sectionContent = contentCollection?.items as ResumeSectionContentFragment[];
   const isSkillSetSection = name === 'skillset';
 
@@ -35,13 +35,13 @@ export const Resume: React.FC<ResumeProps> = ({
             {heading && subHeading && (
               <Flex
                 justifyContent={{ base: 'space-between', md: 'initial' }}
-                alignItems="center"
+                alignItems="flex-start"
                 mb={4}
               >
                 <Heading as="h3" fontSize={18} mr={4}>
                   {heading}
                 </Heading>
-                <Text fontSize={12} color="gray.600">
+                <Text fontSize={12} color="gray.600" textAlign="right">
                   {subHeading}
                 </Text>
               </Flex>

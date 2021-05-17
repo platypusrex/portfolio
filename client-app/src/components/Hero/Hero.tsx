@@ -16,18 +16,15 @@ export const Hero: React.FC<HeroProps> = ({ src, alt, parallax = true }) => {
 
   useEffect(() => {
     const target = document.getElementById('hero') as HTMLDivElement;
-    console.log('target', target);
     if (!target) {
       return;
     }
 
     function handleScroll() {
-      console.log('scrolling');
       target.style.transform = `scale(1.1) translateY(${window.pageYOffset * 0.25}px)`;
     }
 
     if (parallax) {
-      console.log('parallax true');
       target.style.transform = `scale(1.1) translateY(${window.pageYOffset * 0.25}px)`;
       window.addEventListener('scroll', handleScroll);
     }

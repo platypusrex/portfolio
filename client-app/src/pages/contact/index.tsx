@@ -3,6 +3,7 @@ import { PageHeader } from 'components/PageHeader';
 import { TextField } from 'components/TextField';
 import { TextArea } from 'components/TextArea';
 import { SocialLink, SocialLinkProps } from 'components/SocialLink';
+import { Spinner } from 'components/Spinner';
 import { initializeApollo } from 'lib/apollo';
 import { usePage } from 'hooks/usePage';
 import { useEmailForm } from 'hooks/useEmailForm';
@@ -82,6 +83,7 @@ const ContactPage = () => {
           variant="form"
           type="submit"
           size="lg"
+          spinner={<Spinner />}
           isLoading={isSubmitting}
           loadingText="Sending email..."
           disabled={!isValid}

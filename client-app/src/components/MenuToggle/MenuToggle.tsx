@@ -16,11 +16,11 @@ export const MenuToggle: React.FC<MenuToggleProps> = ({ isOpen, onClick }) => (
     position="absolute"
     top={0}
     left={0}
-    zIndex={1}
+    zIndex={2}
     h="50px"
     w="62px"
     onClick={onClick}
-    aria-label="open the navigation menu"
+    aria-label="opens the navigation menu"
   >
     <Flex
       justifyContent="center"
