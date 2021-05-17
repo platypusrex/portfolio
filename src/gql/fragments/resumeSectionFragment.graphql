@@ -1,0 +1,11 @@
+#import './resumeSectionContentFragment.graphql'
+
+fragment ResumeSection on ResumeSection {
+  name
+  heading
+  contentCollection {
+    items {
+      ...ResumeSectionContent
+    }
+  }
+}

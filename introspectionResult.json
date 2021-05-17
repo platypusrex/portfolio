@@ -1,0 +1,5 @@
+{
+  "possibleTypes": {
+    "Entry": ["Page", "PageHeader", "PracticePage", "NavLink", "SocialLink", "ContactInfo"]
+  }
+}

@@ -1,0 +1,39 @@
+#import './pageHeaderFragment.graphql'
+#import './navLinkFragment.graphql'
+#import './heroFragment.graphql'
+#import './contactInfoFragment.graphql'
+#import './socialLinkFragment.graphql'
+#import './resumeSectionFragment.graphql'
+
+fragment PageFields on Page {
+  pageHeader {
+    ...PageHeader
+  }
+  content {
+    json
+  }
+  navLinksCollection {
+    items {
+      ...NavLink
+    }
+  }
+  hero {
+    ...Hero
+  }
+  heroMobile {
+    ...Hero
+  }
+  contactInfo {
+    ...ContactInfo
+  }
+  socialLinksCollection {
+    items {
+      ...SocialLink
+    }
+  }
+  resumeSectionsCollection {
+    items {
+      ...ResumeSection
+    }
+  }
+}

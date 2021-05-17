@@ -1,0 +1,7 @@
+#import '../fragments/pageFragment.graphql'
+
+query Page($id: String!) {
+  page(id: $id) {
+    ...PageFields
+  }
+}

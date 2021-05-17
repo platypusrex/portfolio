@@ -1,0 +1,7 @@
+fragment ContactInfo on ContactInfo {
+  fullName
+  email
+  phone
+  city
+  state
+}

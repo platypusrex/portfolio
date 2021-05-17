@@ -1,0 +1,6 @@
+fragment ResumeSectionContent on ResumeSectionContent {
+  heading
+  subHeading
+  description
+  descriptionList
+}
