@@ -17,8 +17,8 @@ export interface ResumeProps {
 }
 
 export const Resume: React.FC<ResumeProps> = ({
-                                                resumeSection: { name, heading, contentCollection },
-                                              }) => {
+  resumeSection: { name, heading, contentCollection },
+}) => {
   const sectionContent = contentCollection?.items as ResumeSectionContentFragment[];
   const isSkillSetSection = name === 'skillset';
 

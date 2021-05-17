@@ -30,7 +30,6 @@
     "pdfmake": "^0.1.71",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-parallax": "^3.2.1",
     "yup": "^0.32.9"
   },
   "devDependencies": {
