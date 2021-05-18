@@ -100,7 +100,7 @@ const ContactPage = () => {
     <>
       <PageHeader {...pageHeader} />
       <Box
-        background={`url(${hero?.url}) no-repeat center / cover fixed`}
+        background={`url(${hero?.url}) no-repeat center / cover`}
         padding={{ base: 3, md: 6 }}
         marginX={{ base: 3, md: 10 }}
       >
