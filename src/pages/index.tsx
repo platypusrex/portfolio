@@ -70,7 +70,7 @@ const IndexPage = () => {
       <Hero alt="about-hero-img" src={{ base: heroMobile?.url || '', md: hero?.url || '' }} />
       <Box minH="100vh" ref={aboutSectionRef}>
         <PageHeader {...pageHeader} />
-        <Box padding={{ base: '0 40px', md: '0 80px', lg: '0 50px 0 150px' }}>
+        <Box padding={{ base: '0 20px', md: '0 80px', lg: '0 50px 0 150px' }}>
           <Grid templateColumns="repeat(5, 1fr)">{isMobile ? Content.reverse() : Content}</Grid>
         </Box>
       </Box>

@@ -13,6 +13,10 @@ export default class Document extends NextDocument {
           />
           <link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet" />
+          <script
+            src="https://cdn.jsdelivr.net/npm/seamless-scroll-polyfill@1.0.0/dist/es5/seamless.auto-polyfill.min.js"
+            data-seamless
+          />
         </Head>
         <body>
           <Main />

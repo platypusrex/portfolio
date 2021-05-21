@@ -103,7 +103,7 @@ const ContactPage = () => {
       <Box
         background={`url(${hero?.url}) no-repeat center / cover`}
         padding={{ base: 3, md: 6 }}
-        marginX={{ base: 3, md: 10 }}
+        marginX={{ base: 0, md: 10 }}
       >
         <Grid templateColumns="repeat(5, 1fr)" gap={6}>
           {LeftColumn}
