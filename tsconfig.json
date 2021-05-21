@@ -20,6 +20,7 @@
     "target": "esnext",
     "paths": {
       "components/*": ["./src/components/*"],
+      "constants/*": ["./src/constants/*"],
       "gql": ["./src/gql/index.ts"],
       "hooks/*": ["./src/hooks/*"],
       "layout/*": ["./src/layout/*"],

@@ -7,6 +7,7 @@ import { Spinner } from 'components/Spinner';
 import { initializeApollo } from 'lib/apollo';
 import { usePage } from 'hooks/usePage';
 import { useEmailForm } from 'hooks/useEmailForm';
+import { pageTitle } from 'constants/pageTitle';
 import { Page } from 'gql';
 import { PageQuery, PageQueryVariables } from 'types/generated';
 
@@ -125,6 +126,7 @@ export const getStaticProps = async () => {
     props: {
       initialApolloState: apolloClient.cache.extract(),
       navLinks: data.page?.navLinksCollection,
+      title: pageTitle.contact,
       revalidate: 1,
     },
   };

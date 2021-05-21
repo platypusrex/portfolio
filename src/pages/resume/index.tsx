@@ -5,6 +5,7 @@ import { Resume } from 'components/Resume';
 import { initializeApollo } from 'lib/apollo';
 import { usePage } from 'hooks/usePage';
 import { useResumePdf } from 'hooks/useResumePdf';
+import { pageTitle } from 'constants/pageTitle';
 import { Page } from 'gql';
 import { PageQuery, PageQueryVariables } from 'types/generated';
 
@@ -46,6 +47,7 @@ export const getStaticProps = async () => {
     props: {
       initialApolloState: apolloClient.cache.extract(),
       navLinks: data.page?.navLinksCollection,
+      title: pageTitle.resume,
       revalidate: 1,
     },
   };

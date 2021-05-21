@@ -11,6 +11,7 @@ import { LinkButton } from 'components/LinkButton';
 import { initializeApollo } from 'lib/apollo';
 import { usePage } from 'hooks/usePage';
 import { useBreakpointValue } from '@chakra-ui/media-query';
+import { pageTitle } from 'constants/pageTitle';
 import { Page } from 'gql';
 import { PageQuery, PageQueryVariables } from 'types/generated';
 
@@ -89,6 +90,7 @@ export const getStaticProps = async () => {
     props: {
       initialApolloState: apolloClient.cache.extract(),
       navLinks: data.page?.navLinksCollection,
+      title: pageTitle.about,
       revalidate: 1,
     },
   };
