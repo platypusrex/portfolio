@@ -5,8 +5,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
-    "lint": "eslint \\\"src/**/*.{ts,tsx,js}\\\"",
-    "lint:fix": "eslint --fix \\\"src/**/*.{ts,tsx,js}\\\"",
+    "lint": "eslint \"src/**/*.{ts,tsx,js}\"",
+    "lint:fix": "eslint --fix \"src/**/*.{ts,tsx,js}\"",
     "check:types": "tsc",
     "generate": "graphql-codegen --config codegen.yml"
   },
