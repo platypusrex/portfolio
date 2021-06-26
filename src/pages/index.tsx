@@ -14,6 +14,8 @@ import { useBreakpointValue } from '@chakra-ui/media-query';
 import { pageTitle } from 'constants/pageTitle';
 import { Page } from 'gql';
 import { PageQuery, PageQueryVariables } from 'types/generated';
+import me_desktop from '../../public/images/me_mountain.jpeg';
+import me_mobile from '../../public/images/me.png';
 
 const ABOUT_PAGE_ID = '6iA2yPjBR8dYsO6YFwJuu3';
 const contentOptions: Options = {
@@ -28,7 +30,7 @@ const contentOptions: Options = {
 
 const IndexPage = () => {
   const aboutSectionRef = useRef(null);
-  const { content, pageHeader, hero, heroMobile } = usePage(ABOUT_PAGE_ID);
+  const { content, pageHeader } = usePage(ABOUT_PAGE_ID);
   const isMobile = useBreakpointValue({ base: true, lg: false });
 
   const Content = [
@@ -67,7 +69,7 @@ const IndexPage = () => {
         <HelloWorld />
         <Arrow />
       </ScrollButton>
-      <Hero alt="about-hero-img" src={{ base: heroMobile?.url || '', md: hero?.url || '' }} />
+      <Hero alt="about-hero-img" src={{ base: me_mobile, md: me_desktop }} />
       <Box minH="100vh" ref={aboutSectionRef}>
         <PageHeader {...pageHeader} />
         <Box padding={{ base: '0 20px', md: '0 80px', lg: '0 50px 0 150px' }}>
