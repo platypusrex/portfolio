@@ -1,6 +1,17 @@
 {
   "name": "portfolio",
+  "author": "Frank Cooke",
   "version": "1.0.0",
+  "description": "Frank Cooke portfolio",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platypusrex/portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/platypusrex/portfolio/issues"
+  },
+  "homepage": "https://github.com/platypusrex/portfolio#readme",
+  "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -63,6 +74,5 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.2.1",
     "typescript": "4.3.4"
-  },
-  "license": "MIT"
+  }
 }
