@@ -16,8 +16,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
-    "lint": "eslint \"src/**/*.{ts,tsx,js}\"",
-    "lint:fix": "eslint --fix \"src/**/*.{ts,tsx,js}\"",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "check:types": "tsc",
     "generate": "graphql-codegen --config codegen.yml"
   },
@@ -64,6 +64,7 @@
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "eslint": "^7.22.0",
+    "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.4.0",
