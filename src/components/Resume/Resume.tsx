@@ -34,6 +34,7 @@ export const Resume: React.FC<ResumeProps> = ({
           <Box key={subHeading} mb={6}>
             {heading && subHeading && (
               <Flex
+                flexDir="column"
                 justifyContent={{ base: 'space-between', md: 'initial' }}
                 alignItems="flex-start"
                 mb={4}
