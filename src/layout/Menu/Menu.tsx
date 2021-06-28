@@ -1,17 +1,35 @@
 import React from 'react';
-import { Flex, SlideFade } from '@chakra-ui/react';
+import { motion, Variants } from 'framer-motion';
+import { Flex, FlexProps } from '@chakra-ui/react';
 import { NavLink } from 'components/NavLink';
 import { PageFieldsFragment } from 'types/generated';
 import { useLayoutContext } from 'lib/layoutContext';
+
+const list: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.125,
+    },
+  },
+};
+
+const item: Variants = {
+  hidden: { opacity: 0, y: -100 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const MotionFlex = motion<FlexProps>(Flex);
 
 interface MenuProps {
   navLinks: PageFieldsFragment['navLinksCollection'];
 }
 
 export const Menu: React.FC<MenuProps> = ({ navLinks }) => {
-  const { isMenuOpen, animateTransition } = useLayoutContext();
+  const { isMenuOpen, layoutAnimationKey } = useLayoutContext();
   return (
-    <SlideFade in={animateTransition} offsetY="10px">
+    <motion.div initial="hidden" animate="visible" variants={list} key={layoutAnimationKey}>
       <Flex
         as="nav"
         justify="center"
@@ -31,9 +49,11 @@ export const Menu: React.FC<MenuProps> = ({ navLinks }) => {
         }}
       >
         {navLinks?.items.map((navLink, i) => (
-          <NavLink key={i} {...navLink} />
+          <MotionFlex w="100%" justifyContent="center" variants={item} key={layoutAnimationKey}>
+            <NavLink key={i} {...navLink} />
+          </MotionFlex>
         ))}
       </Flex>
-    </SlideFade>
+    </motion.div>
   );
 };

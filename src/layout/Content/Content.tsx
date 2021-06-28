@@ -4,9 +4,9 @@ import { MenuToggle } from 'components/MenuToggle';
 import { useLayoutContext } from 'lib/layoutContext';
 
 export const Content: React.FC = ({ children }) => {
-  const { isMenuOpen, animateTransition, setMenuOpen } = useLayoutContext();
+  const { isMenuOpen, setMenuOpen, layoutAnimationKey } = useLayoutContext();
   return (
-    <SlideFade in={animateTransition} offsetY="10px">
+    <SlideFade offsetY="50px" in unmountOnExit key={layoutAnimationKey}>
       <Box
         gridArea="content"
         as="article"
