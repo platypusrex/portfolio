@@ -4,19 +4,13 @@ import { useRouter } from 'next/router';
 
 export interface LayoutContextType {
   isMenuOpen: boolean;
-  animateTransition: boolean;
+  layoutAnimationKey: string;
   setMenuOpen: () => void;
 }
 
-type LayoutState = Omit<LayoutContextType, 'setMenuOpen'>;
-
-const initialLayoutState: LayoutState = {
-  isMenuOpen: false,
-  animateTransition: true,
-};
-
 const LayoutContext = createContext<LayoutContextType>({
-  ...initialLayoutState,
+  isMenuOpen: false,
+  layoutAnimationKey: '',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setMenuOpen: () => {},
 });
@@ -24,38 +18,29 @@ const LayoutContext = createContext<LayoutContextType>({
 export const LayoutProvider: FC = ({ children }) => {
   const router = useRouter();
   const [isLargerThan768] = useMediaQuery('(min-width: 768px)');
-  const [layoutState, setLayoutState] = useState<LayoutState>(initialLayoutState);
-  const setMenuOpen = useCallback(() => {
-    setLayoutState((prevState) => ({ ...prevState, isMenuOpen: !prevState.isMenuOpen }));
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const handleSetMenuOpen = useCallback(() => {
+    setMenuOpen((prevState) => !prevState);
   }, []);
 
   useEffect(() => {
     const handleRouteChangeStart = () => {
-      if (isLargerThan768) {
-        setLayoutState((prevState) => ({ ...prevState, animateTransition: false }));
-      }
-      if (!isLargerThan768 && layoutState.isMenuOpen) {
-        setLayoutState((prevState) => ({ ...prevState, isMenuOpen: false }));
-      }
-    };
-
-    const handleRouteChangeComplete = () => {
-      if (isLargerThan768) {
-        setLayoutState((prevState) => ({ ...prevState, animateTransition: true }));
+      if (!isLargerThan768 && isMenuOpen) {
+        setMenuOpen(false);
       }
     };
 
     router.events.on('routeChangeStart', handleRouteChangeStart);
-    router.events.on('routeChangeComplete', handleRouteChangeComplete);
 
     return () => {
       router.events.off('routeChangeStart', handleRouteChangeStart);
-      router.events.off('routeChangeComplete', handleRouteChangeComplete);
     };
   });
 
   return (
-    <LayoutContext.Provider value={{ ...layoutState, setMenuOpen }}>
+    <LayoutContext.Provider
+      value={{ isMenuOpen, setMenuOpen: handleSetMenuOpen, layoutAnimationKey: router.route }}
+    >
       {children}
     </LayoutContext.Provider>
   );
