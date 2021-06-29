@@ -42,7 +42,7 @@ export const Resume: React.FC<ResumeProps> = ({
                 <Heading as="h3" fontSize={18} mr={4}>
                   {heading}
                 </Heading>
-                <Text fontSize={12} color="gray.600" textAlign="right">
+                <Text fontSize={12} color="gray.600">
                   {subHeading}
                 </Text>
               </Flex>

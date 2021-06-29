@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 export interface LayoutContextType {
   isMenuOpen: boolean;
   layoutAnimationKey: string;
+  isDesktop?: boolean;
   setMenuOpen: () => void;
 }
 
@@ -17,7 +18,7 @@ const LayoutContext = createContext<LayoutContextType>({
 
 export const LayoutProvider: FC = ({ children }) => {
   const router = useRouter();
-  const [isLargerThan768] = useMediaQuery('(min-width: 768px)');
+  const [isDesktop] = useMediaQuery('(min-width: 768px)');
   const [isMenuOpen, setMenuOpen] = useState(false);
   const handleSetMenuOpen = useCallback(() => {
     setMenuOpen((prevState) => !prevState);
@@ -25,7 +26,7 @@ export const LayoutProvider: FC = ({ children }) => {
 
   useEffect(() => {
     const handleRouteChangeStart = () => {
-      if (!isLargerThan768 && isMenuOpen) {
+      if (!isDesktop && isMenuOpen) {
         setMenuOpen(false);
       }
     };
@@ -39,7 +40,11 @@ export const LayoutProvider: FC = ({ children }) => {
 
   return (
     <LayoutContext.Provider
-      value={{ isMenuOpen, setMenuOpen: handleSetMenuOpen, layoutAnimationKey: router.route }}
+      value={{
+        isMenuOpen,
+        setMenuOpen: handleSetMenuOpen,
+        layoutAnimationKey: isDesktop ? router.route : '',
+      }}
     >
       {children}
     </LayoutContext.Provider>
