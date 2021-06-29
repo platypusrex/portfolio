@@ -13,6 +13,7 @@ const newLine = '\n';
 const sectionDivider = '\n\n';
 const styles = {
   headerTitle: {
+    color: 'cornflowerblue',
     fontSize: 30,
   },
   headerContact: {
@@ -57,16 +58,12 @@ const experienceContentGenerator = (
   return {
     stack: [
       {
-        text: [
-          {
-            style: styles.experienceTitle,
-            text: title.toUpperCase(),
-          },
-          {
-            style: styles.experienceSubtitle,
-            text: '\t' + subTitle.toUpperCase(),
-          },
-        ],
+        style: styles.experienceTitle,
+        text: title.toUpperCase(),
+      },
+      {
+        style: styles.experienceSubtitle,
+        text: '\t' + subTitle.toUpperCase(),
       },
       '\n',
       {
@@ -88,8 +85,15 @@ const pdfHeader = (contactInfo: PageFieldsFragment['contactInfo']): ContentColum
   return {
     columns: [
       {
-        style: styles.headerTitle,
-        text: fullName || '',
+        stack: [
+          {
+            style: styles.headerTitle,
+            text: fullName || '',
+          },
+          {
+            text: 'Front End Engineer'.toUpperCase(),
+          },
+        ],
       },
       {
         alignment: 'right',
