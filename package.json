@@ -16,6 +16,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
+    "start:local": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "check:types": "tsc",
