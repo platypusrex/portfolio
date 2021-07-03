@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, Fragment } from 'react';
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { Box, Grid, GridItem, Text } from '@chakra-ui/react';
@@ -35,13 +35,13 @@ const IndexPage = () => {
   const { content, pageHeader } = usePage(ABOUT_PAGE_ID);
 
   const Content = [
-    <>
+    <Fragment key="col-1">
       {content?.json && (
-        <GridItem key="col-1" colSpan={{ base: 5, lg: 4 }}>
+        <GridItem colSpan={{ base: 5, lg: 4 }}>
           {documentToReactComponents(content.json, contentOptions)}
         </GridItem>
       )}
-    </>,
+    </Fragment>,
     <GridItem
       key="col-2"
       display="flex"
