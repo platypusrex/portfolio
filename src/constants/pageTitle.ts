@@ -1,5 +1,10 @@
-export const pageTitle = {
-  about: 'Frank Cooke Developer Portfolio | About page',
-  contact: 'Frank Cooke Developer Portfolio | Contact page',
-  resume: 'Frank Cooke Developer Portfolio | Resume page',
+type PageTitleKey = 'about' | 'contact' | 'resume';
+type PageTitle = Record<PageTitleKey, string>;
+
+const basePageTitle = 'Frank Cooke Developer Portfolio |';
+
+export const pageTitle: PageTitle = {
+  about: `${basePageTitle}About page`,
+  contact: `${basePageTitle}Contact page`,
+  resume: `${basePageTitle}Resume page`,
 };

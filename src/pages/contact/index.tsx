@@ -37,11 +37,13 @@ const ContactPage = () => {
             </Text>
           </Box>
         )}
-        <Flex sx={{ '& a': { marginRight: 3 } }} mt={2}>
-          {socialLinksCollection?.items.map((socialLink, i) => (
-            <SocialLink key={i} {...(socialLink as SocialLinkProps)} />
-          ))}
-        </Flex>
+        {socialLinksCollection?.items && (
+          <Flex sx={{ '& a': { marginRight: 3 } }} mt={2}>
+            {socialLinksCollection.items.map((socialLink, i) => (
+              <SocialLink key={i} {...(socialLink as SocialLinkProps)} />
+            ))}
+          </Flex>
+        )}
       </Flex>
     </GridItem>
   );

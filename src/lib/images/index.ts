@@ -1,2 +1,2 @@
-export * from './imgPlaceholderShimmer';
+export * from './imgPlaceholder';
 export * from './toBase64';

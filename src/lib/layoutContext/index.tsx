@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 export interface LayoutContextType {
   isMenuOpen: boolean;
   layoutAnimationKey: string;
-  isDesktop?: boolean;
   setMenuOpen: () => void;
 }
 

@@ -18,6 +18,7 @@ import me_desktop from '../../public/images/me_mountain.jpeg';
 import me_mobile from '../../public/images/me.png';
 
 const ABOUT_PAGE_ID = '6iA2yPjBR8dYsO6YFwJuu3';
+
 const contentOptions: Options = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (_, children) => (
@@ -29,14 +30,18 @@ const contentOptions: Options = {
 };
 
 const IndexPage = () => {
+  const isMobile = useBreakpointValue({ base: true, lg: false });
   const aboutSectionRef = useRef(null);
   const { content, pageHeader } = usePage(ABOUT_PAGE_ID);
-  const isMobile = useBreakpointValue({ base: true, lg: false });
 
   const Content = [
-    <GridItem key="col-1" colSpan={{ base: 5, lg: 4 }}>
-      {content?.json && documentToReactComponents(content.json, contentOptions)}
-    </GridItem>,
+    <>
+      {content?.json && (
+        <GridItem key="col-1" colSpan={{ base: 5, lg: 4 }}>
+          {documentToReactComponents(content.json, contentOptions)}
+        </GridItem>
+      )}
+    </>,
     <GridItem
       key="col-2"
       display="flex"

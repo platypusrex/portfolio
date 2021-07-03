@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Box } from '@chakra-ui/react';
 import { useBreakpointValue } from '@chakra-ui/media-query';
 import { ResponsiveObject } from '@chakra-ui/styled-system/dist/types/utils';
-import { shimmer, toBase64 } from 'lib/images';
+import { imgPlaceholder, toBase64 } from 'lib/images';
 
 export interface HeroProps {
   src: string | ResponsiveObject<string>;
@@ -45,7 +45,7 @@ export const Hero: React.FC<HeroProps> = ({ src, alt, parallax = true }) => {
     <Box position="relative" w="100%" h="100vh">
       <Image
         src={imgUrl}
-        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+        blurDataURL={`data:image/svg+xml;base64,${toBase64(imgPlaceholder(700, 475))}`}
         alt={alt}
         id="hero"
         layout="fill"

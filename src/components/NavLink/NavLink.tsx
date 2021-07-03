@@ -58,14 +58,14 @@ export const NavLink: React.FC<Pick<NavLinkProps, 'title' | 'description' | 'ico
         >
           {title}
         </Text>
-        <Flex
-          justify="center"
-          align="center"
-          borderTop="1px solid"
-          borderColor="gray.500"
-          position="relative"
-        >
-          {icon && (
+        {icon && (
+          <Flex
+            justify="center"
+            align="center"
+            borderTop="1px solid"
+            borderColor="gray.500"
+            position="relative"
+          >
             <Flex
               as="span"
               position="absolute"
@@ -77,8 +77,8 @@ export const NavLink: React.FC<Pick<NavLinkProps, 'title' | 'description' | 'ico
             >
               <Icon icon={icon as IconProps['icon']} />
             </Flex>
-          )}
-        </Flex>
+          </Flex>
+        )}
         <Text fontSize="10px" my="30px">
           {description}
         </Text>
