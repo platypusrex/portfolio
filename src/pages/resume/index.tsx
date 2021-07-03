@@ -25,12 +25,14 @@ const ResumePage = () => {
   return (
     <>
       <PageHeader {...pageHeader} extra={extra} />
-      <Box padding={{ base: '0 20px', md: '0 40px', lg: '0 80px', xl: '0 100px' }}>
-        {resumeSectionsCollection?.items?.map(
-          (resumeSection) =>
-            resumeSection && <Resume key={resumeSection.name} resumeSection={resumeSection} />
-        )}
-      </Box>
+      {resumeSectionsCollection?.items && (
+        <Box padding={{ base: '0 20px', md: '0 40px', lg: '0 80px', xl: '0 100px' }}>
+          {resumeSectionsCollection.items.map(
+            (resumeSection) =>
+              resumeSection && <Resume key={resumeSection.name} resumeSection={resumeSection} />
+          )}
+        </Box>
+      )}
     </>
   );
 };

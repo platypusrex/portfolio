@@ -1,24 +1,10 @@
 import React from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Flex, FlexProps } from '@chakra-ui/react';
 import { NavLink } from 'components/NavLink';
-import { PageFieldsFragment } from 'types/generated';
 import { useLayoutContext } from 'lib/layoutContext';
-
-const list: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.125,
-    },
-  },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: -100 },
-  visible: { opacity: 1, y: 0 },
-};
+import { item, list } from 'layout/Menu/constants';
+import { PageFieldsFragment } from 'types/generated';
 
 const MotionFlex = motion<FlexProps>(Flex);
 
