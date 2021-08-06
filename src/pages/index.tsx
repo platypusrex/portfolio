@@ -14,8 +14,8 @@ import { useBreakpointValue } from '@chakra-ui/media-query';
 import { pageTitle } from 'constants/pageTitle';
 import { Page } from 'gql';
 import { PageQuery, PageQueryVariables } from 'types/generated';
-import me_desktop from '../../public/images/me_mountain.jpeg';
-import me_mobile from '../../public/images/me.png';
+import me_desktop from 'public/images/me_mountain.jpeg';
+import me_mobile from 'public/images/me.png';
 
 const ABOUT_PAGE_ID = '6iA2yPjBR8dYsO6YFwJuu3';
 

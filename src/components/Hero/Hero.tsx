@@ -3,17 +3,16 @@ import Image from 'next/image';
 import { Box } from '@chakra-ui/react';
 import { useBreakpointValue } from '@chakra-ui/media-query';
 import { ResponsiveObject } from '@chakra-ui/styled-system/dist/types/utils';
-import { imgPlaceholder, toBase64 } from 'lib/images';
 
 export interface HeroProps {
-  src: string | ResponsiveObject<string>;
+  src: ResponsiveObject<StaticImageData>;
   alt: string;
   parallax?: boolean;
 }
 
 export const Hero: React.FC<HeroProps> = ({ src, alt, parallax = true }) => {
-  const breakpointConfig = typeof src === 'string' ? { base: src } : src;
-  const imgUrl = useBreakpointValue(breakpointConfig);
+  // @ts-ignore
+  const imgUrl = useBreakpointValue<StaticImageData>(src);
 
   useEffect(() => {
     const target = document.getElementById('hero') as HTMLDivElement;
@@ -43,15 +42,7 @@ export const Hero: React.FC<HeroProps> = ({ src, alt, parallax = true }) => {
 
   return (
     <Box position="relative" w="100%" h="100vh">
-      <Image
-        src={imgUrl}
-        blurDataURL={`data:image/svg+xml;base64,${toBase64(imgPlaceholder(700, 475))}`}
-        alt={alt}
-        id="hero"
-        layout="fill"
-        objectFit="cover"
-        placeholder="blur"
-      />
+      <Image src={imgUrl} alt={alt} id="hero" layout="fill" objectFit="cover" placeholder="blur" />
     </Box>
   );
 };
