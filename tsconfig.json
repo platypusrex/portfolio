@@ -26,7 +26,8 @@
       "layout/*": ["./src/layout/*"],
       "lib/*": ["./src/lib/*"],
       "styled/*": ["./src/styled/*"],
-      "types/*": ["./src/types/*"]
+      "types/*": ["./src/types/*"],
+      "public/*": ["./public/*"]
     },
     "typeRoots": [
       "./node_modules/@types",
