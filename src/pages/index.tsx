@@ -3,8 +3,8 @@ import { documentToReactComponents, Options } from '@contentful/rich-text-react-
 import { BLOCKS } from '@contentful/rich-text-types';
 import { Box, Grid, GridItem, Text } from '@chakra-ui/react';
 import { ScrollButton } from 'components/ScrollButton';
+import { AnimatedText } from 'components/AnimatedText';
 import { Arrow } from 'components/Arrow';
-import { HelloWorld } from 'components/HelloWorld';
 import { Hero } from 'components/Hero';
 import { PageHeader } from 'components/PageHeader';
 import { LinkButton } from 'components/LinkButton';
@@ -71,7 +71,13 @@ const IndexPage = () => {
   return (
     <>
       <ScrollButton scrollElementRef={aboutSectionRef}>
-        <HelloWorld />
+        <AnimatedText
+          text="Hello world!"
+          transform="rotate(-20deg)"
+          m="40px 25px 0"
+          lineHeight="25px"
+          color="white"
+        />
         <Arrow />
       </ScrollButton>
       <Hero alt="about-hero-img" src={{ base: me_mobile, md: me_desktop }} />
