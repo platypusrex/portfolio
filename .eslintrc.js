@@ -1,7 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json',
     ecmaFeatures: {
       jsx: true,
     },
@@ -11,12 +10,10 @@ module.exports = {
   extends: [
     'react-app',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@next/next/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: [
-    '@typescript-eslint',
-    'react',
-  ],
+  plugins: ['@typescript-eslint', 'react', 'prettier'],
   env: {
     browser: true,
     es6: true,
@@ -29,9 +26,10 @@ module.exports = {
   settings: {
     react: {
       version: 'detect',
-    }
+    },
   },
   rules: {
+    'prettier/prettier': 'error',
     'no-console': 'error',
     'import/prefer-default-export': 'off',
     'import/no-default-export': 'error',
@@ -49,13 +47,12 @@ module.exports = {
       },
     ],
   },
-  overrides: [{
-    files: [
-      '**/**/pages/**',
-      '**/**/*stories.*',
-    ],
-    rules: {
-      'import/no-default-export': 'off',
+  overrides: [
+    {
+      files: ['**/**/pages/**', '**/**/*stories.*'],
+      rules: {
+        'import/no-default-export': 'off',
+      },
     },
-  }],
+  ],
 };

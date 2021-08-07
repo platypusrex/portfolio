@@ -4,9 +4,10 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { ApolloProvider } from '@apollo/client';
 import { LayoutProvider } from 'lib/layoutContext';
 import { Layout } from 'layout/Layout';
+import { SEO } from 'components/SEO';
 import { useApollo } from 'lib/apollo';
 import { theme } from 'styled/theme';
-import { SEO } from 'components/SEO';
+import { Loading } from 'components/Loading';
 
 export const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { initialApolloState, navLinks, title } = pageProps;
@@ -18,7 +19,9 @@ export const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <LayoutProvider>
           <Layout navLinks={navLinks}>
             <SEO title={title} />
-            <Component {...pageProps} />
+            <Loading>
+              <Component {...pageProps} />
+            </Loading>
           </Layout>
         </LayoutProvider>
       </ApolloProvider>

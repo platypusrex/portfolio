@@ -5,19 +5,27 @@ import { letter, sentence } from 'components/HelloWorld/constants';
 
 const MotionText = motion(Text);
 
-export const HelloWorld: React.FC = () => (
+interface HelloWorldProps {
+  text: string;
+  color: string;
+}
+
+export const HelloWorld: React.FC<HelloWorldProps> = ({
+  text = 'Hello world!',
+  color = 'white',
+}) => (
   <MotionText
     fontFamily="'Nanum Pen Script', sans-serif"
     fontSize="3xl"
     lineHeight="25px"
-    color="white"
+    color={color}
     transform="rotate(-20deg)"
     m="40px 25px 0"
     variants={sentence}
     initial="hidden"
     animate="visible"
   >
-    {'Hello world!'.split('').map((char, i) => (
+    {text.split('').map((char, i) => (
       <motion.span key={`${char}_${i}`} variants={letter}>
         {char}
       </motion.span>
