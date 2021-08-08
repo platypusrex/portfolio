@@ -7,7 +7,6 @@ import { Layout } from 'layout/Layout';
 import { SEO } from 'components/SEO';
 import { useApollo } from 'lib/apollo';
 import { theme } from 'styled/theme';
-import { Loading } from 'components/Loading';
 
 export const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { initialApolloState, navLinks, title } = pageProps;
@@ -19,9 +18,7 @@ export const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <LayoutProvider>
           <Layout navLinks={navLinks}>
             <SEO title={title} />
-            <Loading>
-              <Component {...pageProps} />
-            </Loading>
+            <Component {...pageProps} />
           </Layout>
         </LayoutProvider>
       </ApolloProvider>

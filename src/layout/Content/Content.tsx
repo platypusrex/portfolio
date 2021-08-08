@@ -1,10 +1,18 @@
 import React from 'react';
 import { Box, SlideFade } from '@chakra-ui/react';
 import { MenuToggle } from 'components/MenuToggle';
+import { Loading } from 'components/Loading';
 import { useLayoutContext } from 'lib/layoutContext';
+import { useLoading } from 'hooks/useLoading';
 
 export const Content: React.FC = ({ children }) => {
   const { isMenuOpen, setMenuOpen, layoutAnimationKey } = useLayoutContext();
+  const loading = useLoading();
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <SlideFade offsetY="50px" in unmountOnExit key={layoutAnimationKey}>
       <Box
