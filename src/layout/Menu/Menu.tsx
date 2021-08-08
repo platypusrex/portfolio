@@ -35,8 +35,8 @@ export const Menu: React.FC<MenuProps> = ({ navLinks }) => {
         }}
       >
         {navLinks?.items.map((navLink, i) => (
-          <MotionFlex w="100%" justifyContent="center" variants={item} key={layoutAnimationKey}>
-            <NavLink key={i} {...navLink} />
+          <MotionFlex w="100%" justifyContent="center" variants={item} key={layoutAnimationKey + i}>
+            <NavLink {...navLink} />
           </MotionFlex>
         ))}
       </Flex>
