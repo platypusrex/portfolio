@@ -23,7 +23,11 @@ export const Resume: React.FC<ResumeProps> = ({
   const isSkillSetSection = name === 'skillset';
 
   return (
-    <Grid templateColumns="repeat(12, 1fr)" columnGap={6}>
+    <Grid
+      templateColumns="repeat(12, 1fr)"
+      columnGap={6}
+      sx={{ ':not(:last-child) hr': { display: 'block' } }}
+    >
       <GridItem colSpan={{ base: 12, lg: 3 }}>
         <Heading as="h2" fontSize={24} mb={6}>
           {heading}
@@ -50,7 +54,6 @@ export const Resume: React.FC<ResumeProps> = ({
             {description && <Text mb={4}>{description}</Text>}
             {descriptionList && (
               <UnorderedList
-                display="inline-block"
                 sx={{
                   columnCount: isSkillSetSection ? { base: '2', md: '3' } : {},
                 }}
@@ -69,7 +72,7 @@ export const Resume: React.FC<ResumeProps> = ({
             )}
           </Box>
         ))}
-        <Divider orientation="horizontal" mb={6} />
+        <Divider orientation="horizontal" mb={6} display="none" />
       </GridItem>
     </Grid>
   );
