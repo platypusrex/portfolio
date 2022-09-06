@@ -23,7 +23,7 @@
     "generate": "graphql-codegen --config codegen.yml"
   },
   "engines": {
-    "node": "14.15.x",
+    "node": "16.x",
     "yarn": "1.x"
   },
   "dependencies": {
