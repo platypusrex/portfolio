@@ -1,11 +1,16 @@
 import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { TDocumentDefinitions } from 'pdfmake/interfaces';
 import { useEffect, useState } from 'react';
 import { PageFieldsFragment } from 'types/generated';
 import { resumeDocDefinition } from 'lib/pdf/pdfDocDefinition';
 
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+const fonts = () => ({
+  Montserrat: {
+    normal: `${window.location.origin}/fonts/Montserrat-Regular.ttf`,
+    bold: `${window.location.origin}/fonts/Montserrat-Bold.ttf`,
+    italics: `${window.location.origin}/fonts/Montserrat-Italic.ttf`,
+  },
+});
 const PDF_NAME = 'frank_cooke_resume.pdf';
 
 export interface UseResumePdf {
@@ -25,11 +30,11 @@ export const useResumePdf = (
   }, [contactInfo, resumeSections]);
 
   const handlePrintPdf = () => {
-    docDefinition && pdfMake.createPdf(docDefinition).print();
+    docDefinition && pdfMake.createPdf(docDefinition, undefined, fonts()).print();
   };
 
   const handleDownloadPdf = () => {
-    docDefinition && pdfMake.createPdf(docDefinition).download(PDF_NAME);
+    docDefinition && pdfMake.createPdf(docDefinition, undefined, fonts()).download(PDF_NAME);
   };
 
   return { handlePrintPdf, handleDownloadPdf };
