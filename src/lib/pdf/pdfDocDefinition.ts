@@ -10,11 +10,11 @@ import { PageFieldsFragment } from 'types/generated';
 const info: TDocumentInformation = { title: 'Frank Cooke Resume' };
 const pageMargins: Margins = [30, 30, 30, 30];
 const newLine = '\n';
-const sectionDivider = '\n\n';
 const styles = {
   headerTitle: {
     color: 'cornflowerblue',
     fontSize: 30,
+    lineHeight: 1,
   },
   headerContact: {
     fontSize: 10,
@@ -27,13 +27,23 @@ const styles = {
     bold: true,
   },
   experienceSubtitle: {
-    fontSize: 10,
+    fontSize: 9,
+    color: '#6a6a6a',
+  },
+  experienceDescription: {
+    fontSize: 12,
+  },
+  experienceList: {
+    fontSize: 11,
+  },
+  educationDescription: {
+    fontSize: 11,
+    margin: [0, 5, 0, 0],
   },
 };
 
 const resumeSection = (sectionTitle: string, sectionContent: Column): ContentColumns => {
   return {
-    alignment: 'justify',
     columns: [
       {
         width: 100,
@@ -43,36 +53,31 @@ const resumeSection = (sectionTitle: string, sectionContent: Column): ContentCol
       // @ts-ignore
       ...sectionContent,
     ],
+    columnGap: 10,
   };
 };
 
-const experienceContentGenerator = (
-  title: string,
-  subTitle: string,
-  summary: string,
-  description?: string[]
-) => {
-  const descCopy = description && description.length ? [...description] : [];
-  const list = descCopy.length ? { style: { fontSize: 11 }, ul: descCopy } : '';
+const generateSectionHeading = (title: string, subTitle: string) => {
+  return [
+    {
+      style: styles.experienceTitle,
+      text: title.toUpperCase(),
+    },
+    {
+      style: styles.experienceSubtitle,
+      text: '\t' + subTitle.toUpperCase(),
+    },
+  ];
+};
 
-  return {
-    stack: [
-      {
-        style: styles.experienceTitle,
-        text: title.toUpperCase(),
-      },
-      {
-        style: styles.experienceSubtitle,
-        text: '\t' + subTitle.toUpperCase(),
-      },
-      '\n',
-      {
-        text: summary,
-      },
-      '\n',
-      list,
-    ],
-  };
+const generateDescription = (description: string) => ({
+  style: styles.experienceDescription,
+  text: description,
+});
+
+const generateDescriptionList = (descriptionList?: string[]) => {
+  const descCopy = descriptionList && descriptionList.length ? [...descriptionList] : [];
+  return descCopy.length ? { style: styles.experienceList, ul: descCopy } : '';
 };
 
 const getSectionByName = (
@@ -91,7 +96,7 @@ const pdfHeader = (contactInfo: PageFieldsFragment['contactInfo']): ContentColum
             text: fullName || '',
           },
           {
-            text: 'Front End Engineer'.toUpperCase(),
+            text: 'Full Stack Engineer'.toUpperCase(),
           },
         ],
       },
@@ -145,12 +150,15 @@ const getWorkExperienceSection = (
   const contentList =
     workExperienceSection?.contentCollection?.items?.map((content) => {
       return [
-        experienceContentGenerator(
-          content?.heading || '',
-          content?.subHeading || '',
-          content?.description || '',
-          content?.descriptionList?.map((desc) => desc || '')
-        ),
+        {
+          stack: [
+            generateSectionHeading(content?.heading || '', content?.subHeading || ''),
+            newLine,
+            generateDescription(content?.description || ''),
+            newLine,
+            generateDescriptionList(content?.descriptionList?.map((desc) => desc || '')),
+          ],
+        },
       ];
     }) || [];
 
@@ -166,16 +174,18 @@ const getEducationSection = (resumeSections: PageFieldsFragment['resumeSectionsC
   const contentList =
     educationSection?.contentCollection?.items?.map((content) => {
       return [
-        experienceContentGenerator(
-          content?.heading || '',
-          content?.subHeading || '',
-          content?.description || ''
-        ),
+        {
+          stack: [
+            generateSectionHeading(content?.heading || '', content?.subHeading || ''),
+            { text: content?.description || '', style: styles.educationDescription },
+          ],
+        },
       ];
     }) || [];
 
   return contentList?.map((content, i) => {
     const title = i < 1 ? sectionTitle : '';
+    // @ts-ignore
     return [resumeSection(title, content), newLine];
   });
 };
@@ -192,15 +202,19 @@ export const resumeDocDefinition = (
   return {
     info,
     pageMargins,
+    defaultStyle: {
+      font: 'Montserrat',
+      lineHeight: 1.25,
+    },
     content: [
       pdfHeader(contactInfo),
-      sectionDivider,
+      newLine,
       resumeSection(summarySection.heading, summarySection.content),
-      sectionDivider,
+      newLine,
       resumeSection(skillsetSection.heading, skillsetSection.content),
-      sectionDivider,
+      newLine,
       ...workExperienceSection,
-      sectionDivider,
+      newLine,
       ...educationSection,
     ],
   };
