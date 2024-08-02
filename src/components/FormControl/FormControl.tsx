@@ -6,7 +6,7 @@ import {
 } from '@chakra-ui/react';
 
 export interface FormControlProps extends Pick<FormControlOptions, 'isInvalid' | 'isRequired'> {
-  error: string;
+  error?: string;
 }
 
 export const FormControl: React.FC<FormControlProps> = ({

@@ -16,7 +16,7 @@ const getIconSize = (size?: IconProps['size']) => {
 };
 
 export interface IconProps {
-  icon: 'user' | 'email' | 'download' | 'file' | 'printer' | 'github' | 'linkedin';
+  icon: 'user' | 'email' | 'download' | 'file' | 'printer' | 'wrench' | 'github' | 'linkedin';
   size?: number | 'sm' | 'md' | 'lg';
   title?: string;
 }

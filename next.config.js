@@ -1,5 +1,5 @@
 const withSvgr = require('next-plugin-svgr');
-const withGraphql = require('next-plugin-graphql');
+const withGraphql = require('nextjs-plugin-graphql');
 const withPlugins = require('next-compose-plugins');
 
 const nextConfig = {
@@ -8,4 +8,5 @@ const nextConfig = {
   },
 }
 
-module.exports = withPlugins([withSvgr, withGraphql], nextConfig);
+module.exports = async (phase, { defaultConfig }) =>
+  withPlugins([withSvgr, withGraphql], nextConfig)(phase, { ...defaultConfig, ...nextConfig });

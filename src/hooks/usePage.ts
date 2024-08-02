@@ -1,8 +1,9 @@
 import { QueryResult } from '@apollo/client';
-import { PageFieldsFragment } from 'types/generated';
+import { PageFieldsFragment, PageQuery, Exact } from 'types/generated';
 import { usePageQuery } from 'hooks/generated';
 
-export type UsePage = Omit<QueryResult, 'data'> & Omit<PageFieldsFragment, 'navLinksCollection'>;
+export type UsePage = Omit<QueryResult<PageQuery, Exact<{ id: string }>>, 'data'> &
+  Omit<PageFieldsFragment, 'navLinksCollection'>;
 
 export const usePage = (pageId: string): UsePage => {
   const { data, ...rest } = usePageQuery({

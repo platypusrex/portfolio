@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Flex, FlexProps } from '@chakra-ui/react';
+import { Box, Flex, FlexProps } from '@chakra-ui/react';
 import { NavLink } from 'components/NavLink';
 import { useLayoutContext } from 'lib/layoutContext';
 import { item, list } from 'layout/Menu/constants';
@@ -14,13 +14,18 @@ interface MenuProps {
 
 export const Menu: React.FC<MenuProps> = ({ navLinks }) => {
   const { isMenuOpen, layoutAnimationKey } = useLayoutContext();
+
+  // const links = [
+  //   ...(navLinks?.items ?? []),
+  //   { title: 'Projects', description: "Things I've built", href: '/projects', icon: 'wrench' },
+  // ];
+
   return (
     <motion.div initial="hidden" animate="visible" variants={list} key={layoutAnimationKey}>
-      <Flex
+      <Box
         as="nav"
-        justify="center"
-        align="center"
-        direction="column"
+        overflowY="scroll"
+        display="grid"
         gridArea="sidebar"
         borderWidth="1px"
         borderColor="gray.100"
@@ -34,12 +39,19 @@ export const Menu: React.FC<MenuProps> = ({ navLinks }) => {
           md: 'translateX(0)',
         }}
       >
-        {navLinks?.items.map((navLink, i) => (
-          <MotionFlex w="100%" justifyContent="center" variants={item} key={layoutAnimationKey + i}>
-            <NavLink {...navLink} />
-          </MotionFlex>
-        ))}
-      </Flex>
+        <Box marginBlock="auto">
+          {navLinks?.items.map((navLink, i) => (
+            <MotionFlex
+              w="100%"
+              justifyContent="center"
+              variants={item}
+              key={layoutAnimationKey + i}
+            >
+              <NavLink {...navLink} />
+            </MotionFlex>
+          ))}
+        </Box>
+      </Box>
     </motion.div>
   );
 };
