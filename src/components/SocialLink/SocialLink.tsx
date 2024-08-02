@@ -14,7 +14,6 @@ export const SocialLink: React.FC<SocialLinkProps> = ({ icon, href, target }) =>
     target={target}
     aria-label={`${icon} link`}
     as="a"
-    w="fit-content"
     h="fit-content"
     padding="9px"
     border="1px solid black"
