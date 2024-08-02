@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { Box } from '@chakra-ui/react';
 import { useBreakpointValue } from '@chakra-ui/media-query';
 import { ResponsiveObject } from '@chakra-ui/styled-system/dist/types/utils';
@@ -11,8 +11,7 @@ export interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ src, alt, parallax = true }) => {
-  // @ts-ignore
-  const imgUrl = useBreakpointValue<StaticImageData>(src);
+  const imgUrl = useBreakpointValue(src);
 
   useEffect(() => {
     const target = document.getElementById('hero') as HTMLDivElement;

@@ -50,11 +50,11 @@ export const NavLink: React.FC<Pick<NavLinkProps, 'title' | 'description' | 'ico
         }}
       >
         <Text
-          fontSize="22px"
+          fontSize="18px"
           casing="uppercase"
           fontWeight="bold"
           marginBlockStart="1em"
-          marginBlockEnd="1em"
+          marginBlockEnd="0.875em"
         >
           {title}
         </Text>
@@ -79,7 +79,7 @@ export const NavLink: React.FC<Pick<NavLinkProps, 'title' | 'description' | 'ico
             </Flex>
           </Flex>
         )}
-        <Text fontSize="10px" my="30px">
+        <Text fontSize="10px" marginBlockStart="1.5rem" marginBlockEnd="1rem">
           {description}
         </Text>
       </Link>

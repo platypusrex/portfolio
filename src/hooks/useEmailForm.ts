@@ -1,4 +1,4 @@
-import * as Yup from 'yup';
+import { InferType, object, string } from 'yup';
 import { useForm } from '@platypusrex/react-use-form';
 import { UseToastOptions, useToast } from '@chakra-ui/react';
 import { useState } from 'react';
@@ -14,15 +14,13 @@ const toastProps: UseToastOptions = {
   position: 'top-right',
 };
 
-const validationSchema = Yup.object()
-  .shape({
-    name: Yup.string().required(NAME_REQUIRED),
-    email: Yup.string().required(EMAIL_REQUIRED).email(EMAIL_VALID),
-    message: Yup.string().required(MESSAGE_REQUIRED),
-  })
-  .defined();
+const schema = object({
+  name: string().required(NAME_REQUIRED),
+  email: string().required(EMAIL_REQUIRED).email(EMAIL_VALID),
+  message: string().required(MESSAGE_REQUIRED),
+});
 
-export type EmailFormValues = Yup.InferType<typeof validationSchema>;
+export type EmailFormValues = InferType<typeof schema>;
 
 const initialValues: EmailFormValues = {
   name: '',
@@ -35,8 +33,10 @@ export const useEmailForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { onSubmit, reset, ...rest } = useForm<EmailFormValues>({
     initialValues,
-    validationSchema,
-    debounce: { in: 1000, out: 0 },
+    validation: {
+      schema,
+      debounce: { in: 1000, out: 0 },
+    },
   });
 
   const handleSubmit = onSubmit(async (values: EmailFormValues) => {

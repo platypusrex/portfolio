@@ -1,12 +1,19 @@
 import React from 'react';
-import { AppProps } from 'next/app';
+import { AppProps as NextAppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
-import { ApolloProvider } from '@apollo/client';
+import { ApolloProvider, NormalizedCacheObject } from '@apollo/client';
 import { LayoutProvider } from 'lib/layoutContext';
 import { Layout } from 'layout/Layout';
 import { SEO } from 'components/SEO';
 import { useApollo } from 'lib/apollo';
 import { theme } from 'styled/theme';
+import { PageFieldsFragment } from 'types/generated';
+
+type AppProps = NextAppProps<{
+  initialApolloState: NormalizedCacheObject;
+  navLinks?: PageFieldsFragment['navLinksCollection'];
+  title: string;
+}>;
 
 export const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { initialApolloState, navLinks, title } = pageProps;

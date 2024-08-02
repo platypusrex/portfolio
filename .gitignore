@@ -24,6 +24,7 @@ node_modules
 *.pem
 .graphqlconfig
 schema.graphql
+tsconfig.tsbuildinfo
 
 # debug
 npm-debug.log*

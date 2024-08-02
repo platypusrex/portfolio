@@ -56,7 +56,7 @@ const ContactPage = () => {
           name="name"
           placeholder="Your name*"
           size="lg"
-          isInvalid={errors.name}
+          isInvalid={!!errors.name}
           error={errors.name}
           value={values.name}
           onChange={onChange}
@@ -66,7 +66,7 @@ const ContactPage = () => {
           name="email"
           placeholder="Your email*"
           size="lg"
-          isInvalid={errors.email}
+          isInvalid={!!errors.email}
           error={errors.email}
           value={values.email}
           onChange={onChange}
@@ -77,7 +77,7 @@ const ContactPage = () => {
           placeholder="Your message*"
           size="lg"
           rows={12}
-          isInvalid={errors.message}
+          isInvalid={!!errors.message}
           error={errors.message}
           value={values.message}
           onChange={onChange}

@@ -7,7 +7,10 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "esnext"],
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -19,21 +22,45 @@
     "strict": true,
     "target": "esnext",
     "paths": {
-      "components/*": ["./src/components/*"],
-      "constants/*": ["./src/constants/*"],
-      "gql": ["./src/gql/index.ts"],
-      "hooks/*": ["./src/hooks/*"],
-      "layout/*": ["./src/layout/*"],
-      "lib/*": ["./src/lib/*"],
-      "styled/*": ["./src/styled/*"],
-      "types/*": ["./src/types/*"],
-      "public/*": ["./public/*"]
+      "components/*": [
+        "./src/components/*"
+      ],
+      "constants/*": [
+        "./src/constants/*"
+      ],
+      "gql": [
+        "./src/gql/index.ts"
+      ],
+      "hooks/*": [
+        "./src/hooks/*"
+      ],
+      "layout/*": [
+        "./src/layout/*"
+      ],
+      "lib/*": [
+        "./src/lib/*"
+      ],
+      "styled/*": [
+        "./src/styled/*"
+      ],
+      "types/*": [
+        "./src/types/*"
+      ],
+      "public/*": [
+        "./public/*"
+      ]
     },
     "typeRoots": [
       "./node_modules/@types",
       "./src/types"
-    ]
+    ],
+    "incremental": true
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

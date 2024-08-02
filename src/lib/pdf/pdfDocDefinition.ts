@@ -50,7 +50,8 @@ const resumeSection = (sectionTitle: string, sectionContent: Column): ContentCol
         style: styles.sectionTitle,
         text: sectionTitle.toUpperCase(),
       },
-      // @ts-ignore
+      // eslint-disable-next-line
+      // @ts-expect-error
       ...sectionContent,
     ],
     columnGap: 10,
@@ -185,7 +186,8 @@ const getEducationSection = (resumeSections: PageFieldsFragment['resumeSectionsC
 
   return contentList?.map((content, i) => {
     const title = i < 1 ? sectionTitle : '';
-    // @ts-ignore
+    // eslint-disable-next-line
+    // @ts-expect-error
     return [resumeSection(title, content), newLine];
   });
 };
