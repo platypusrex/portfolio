@@ -5,16 +5,14 @@ import { Loading } from 'components/Loading';
 import { useLayoutContext } from 'lib/layoutContext';
 import { useLoading } from 'hooks/useLoading';
 
-export const Content: React.FC = ({ children }) => {
-  const { isMenuOpen, setMenuOpen, layoutAnimationKey } = useLayoutContext();
+export const Content: React.FCC = ({ children }) => {
+  const { isMenuOpen, setMenuOpen } = useLayoutContext();
   const loading = useLoading();
 
-  if (loading) {
-    return <Loading />;
-  }
+  if (loading) return <Loading />;
 
   return (
-    <SlideFade offsetY="50px" in unmountOnExit key={layoutAnimationKey}>
+    <SlideFade offsetY="50px" in unmountOnExit>
       <Box
         gridArea="content"
         as="article"

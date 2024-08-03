@@ -9,7 +9,7 @@ export interface FormControlProps extends Pick<FormControlOptions, 'isInvalid' |
   error?: string;
 }
 
-export const FormControl: React.FC<FormControlProps> = ({
+export const FormControl: React.FCC<FormControlProps> = ({
   children,
   isInvalid,
   isRequired,

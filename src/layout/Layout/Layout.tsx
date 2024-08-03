@@ -8,7 +8,7 @@ interface LayoutProps {
   navLinks?: Maybe<PageFieldsFragment['navLinksCollection']>;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children, navLinks }) => (
+export const Layout: React.FCC<LayoutProps> = ({ children, navLinks }) => (
   <Grid templateColumns={{ base: '0 1fr', md: '200px 1fr' }} templateAreas={`'sidebar content'`}>
     {navLinks && <Menu navLinks={navLinks} />}
     <Content>{children}</Content>

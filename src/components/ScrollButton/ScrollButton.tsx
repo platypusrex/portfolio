@@ -5,7 +5,7 @@ interface ScrollButtonProps {
   scrollElementRef: MutableRefObject<HTMLElement | null>;
 }
 
-export const ScrollButton: React.FC<ScrollButtonProps> = ({ scrollElementRef, children }) => {
+export const ScrollButton: React.FCC<ScrollButtonProps> = ({ scrollElementRef, children }) => {
   const handleScrollToElement = () => {
     scrollElementRef?.current?.scrollIntoView({ behavior: 'smooth' });
   };

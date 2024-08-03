@@ -14,9 +14,11 @@ export const Loading: React.FC = () => (
     <AnimatedText
       text="Loading content..."
       staggerDelay={0.05}
+      color="gray.800"
       alignSelf="center"
-      fontFamily="'Montserrat', sans-serif"
-      fontSize="sm"
+      textTransform="uppercase"
+      fontSize="xl"
+      fontWeight="bold"
       mb="10px"
     />
     <Progress height="2px" isIndeterminate colorScheme="red" />

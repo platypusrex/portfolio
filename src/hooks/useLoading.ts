@@ -11,9 +11,7 @@ export const useLoading = () => {
     };
 
     const handleStop = () => {
-      setTimeout(() => {
-        setLoading(false);
-      }, 750);
+      setLoading(false);
     };
 
     router.events.on('routeChangeStart', handleStart);

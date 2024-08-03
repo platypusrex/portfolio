@@ -3,5 +3,5 @@ module.exports = {
   icon: true,
   svgProps: {
     height: '100%',
-  }
+  },
 };

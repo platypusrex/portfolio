@@ -13,7 +13,7 @@ interface MenuProps {
 }
 
 export const Menu: React.FC<MenuProps> = ({ navLinks }) => {
-  const { isMenuOpen, layoutAnimationKey } = useLayoutContext();
+  const { isMenuOpen } = useLayoutContext();
 
   // const links = [
   //   ...(navLinks?.items ?? []),
@@ -21,7 +21,7 @@ export const Menu: React.FC<MenuProps> = ({ navLinks }) => {
   // ];
 
   return (
-    <motion.div initial="hidden" animate="visible" variants={list} key={layoutAnimationKey}>
+    <motion.div initial="hidden" animate="visible" variants={list}>
       <Box
         as="nav"
         overflowY="scroll"
@@ -42,10 +42,10 @@ export const Menu: React.FC<MenuProps> = ({ navLinks }) => {
         <Box marginBlock="auto">
           {navLinks?.items.map((navLink, i) => (
             <MotionFlex
+              key={`${i}:${navLink?.__typename}`}
               w="100%"
               justifyContent="center"
               variants={item}
-              key={layoutAnimationKey + i}
             >
               <NavLink {...navLink} />
             </MotionFlex>

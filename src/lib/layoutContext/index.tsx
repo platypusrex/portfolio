@@ -1,21 +1,19 @@
-import { createContext, FC, useCallback, useContext, useEffect, useState } from 'react';
+import { createContext, FCC, useCallback, useContext, useEffect, useState } from 'react';
 import { useMediaQuery } from '@chakra-ui/media-query';
 import { useRouter } from 'next/router';
 
 export interface LayoutContextType {
   isMenuOpen: boolean;
-  layoutAnimationKey: string;
   setMenuOpen: () => void;
 }
 
 const LayoutContext = createContext<LayoutContextType>({
   isMenuOpen: false,
-  layoutAnimationKey: '',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setMenuOpen: () => {},
 });
 
-export const LayoutProvider: FC = ({ children }) => {
+export const LayoutProvider: FCC = ({ children }) => {
   const router = useRouter();
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -42,7 +40,6 @@ export const LayoutProvider: FC = ({ children }) => {
       value={{
         isMenuOpen,
         setMenuOpen: handleSetMenuOpen,
-        layoutAnimationKey: isDesktop ? router.route : '',
       }}
     >
       {children}
