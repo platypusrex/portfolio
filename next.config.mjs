@@ -2,9 +2,17 @@ import withSvgr from 'next-plugin-svgr';
 import withGraphql from 'nextjs-plugin-graphql';
 import withPlugins from 'next-compose-plugins';
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['images.ctfassets.net'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+        port: '',
+        pathname: '*',
+      },
+    ],
   },
 };
 
