@@ -5,7 +5,7 @@ export const svgVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 1.75,
+      delayChildren: 2,
       staggerChildren: 0.125,
     },
   },
