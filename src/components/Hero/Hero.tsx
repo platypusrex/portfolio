@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import Image, { StaticImageData } from 'next/image';
-import { Box } from '@chakra-ui/react';
+import Image, { StaticImageData } from "next/legacy/image";
+import { Box, ResponsiveObject } from '@chakra-ui/react';
 import { useBreakpointValue } from '@chakra-ui/media-query';
-import { ResponsiveObject } from '@chakra-ui/styled-system/dist/types/utils';
 
 export interface HeroProps {
   src: ResponsiveObject<StaticImageData>;

@@ -19,12 +19,10 @@ export const NavLink: React.FC<Pick<NavLinkProps, 'title' | 'description' | 'ico
 }) => {
   const { pathname } = useRouter();
 
-  if (!href) {
-    return null;
-  }
+  if (!href) return null;
 
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} passHref legacyBehavior>
       <Link
         {...(pathname === href ? { 'aria-current': 'page' } : {})}
         display="inline-block"

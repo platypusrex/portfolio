@@ -1,33 +1,46 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
+import user from 'public/svg/user.svg';
+import email from 'public/svg/email.svg';
+import download from 'public/svg/download.svg';
+import file from 'public/svg/file.svg';
+import printer from 'public/svg/printer.svg';
+import wrench from 'public/svg/wrench.svg';
+import github from 'public/svg/github.svg';
+import linkedin from 'public/svg/linkedin.svg';
 
 const getIconSize = (size?: IconProps['size']) => {
-  if (typeof size === 'number') {
-    return size;
-  }
+  if (typeof size === 'number') return size;
 
-  if (!size || size === 'sm') {
-    return 16;
-  } else if (size === 'md') {
-    return 22;
-  } else {
-    return 48;
+  switch (size) {
+    case 'sm':
+      return 16;
+    case 'md':
+      return 22;
+    case 'lg':
+      return 48;
+    default:
+      return 16;
   }
 };
 
-export interface IconProps {
+const iconMap = {
+  user,
+  email,
+  download,
+  file,
+  printer,
+  wrench,
+  github,
+  linkedin,
+} as const;
+
+export type IconProps = {
   icon: 'user' | 'email' | 'download' | 'file' | 'printer' | 'wrench' | 'github' | 'linkedin';
   size?: number | 'sm' | 'md' | 'lg';
   title?: string;
-}
-
-interface IconPropsInternal {
-  fontSize: number;
-  title?: string;
-  className?: string;
-}
+};
 
 export const Icon: React.FC<IconProps> = ({ icon, size, title }) => {
-  const Icon = dynamic<IconPropsInternal>(() => import(`../../../public/svg/${icon}.svg`));
+  const Icon = iconMap[icon];
   return <Icon title={title} fontSize={getIconSize(size)} className="icon" />;
 };

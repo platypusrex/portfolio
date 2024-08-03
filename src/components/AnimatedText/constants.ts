@@ -11,6 +11,12 @@ export const sentence = (stagger = 0.15): Variants => ({
   },
 });
 
+export const zoomIn: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+};
+
 export const letter: Variants = {
   hidden: {
     opacity: 0,

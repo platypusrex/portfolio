@@ -36,7 +36,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   const Link = !external ? (
     <NextLink href={href}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a>{LinkContent}</a>
+      {LinkContent}
     </NextLink>
   ) : (
     <a href={href}>{LinkContent}</a>

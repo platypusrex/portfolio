@@ -11,5 +11,7 @@ export const SEO: React.FC<SEOProps> = ({ title }) => (
     <meta key="meta-tag__charset" charSet="utf-8" />
     <meta key="meta-tag__ie" httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Frank Cooke" />
   </Head>
 );
