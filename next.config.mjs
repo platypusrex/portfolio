@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import withSvgr from 'next-plugin-svgr';
 import withGraphql from 'nextjs-plugin-graphql';
 import withPlugins from 'next-compose-plugins';
@@ -11,4 +10,3 @@ const nextConfig = {
 
 export default async (phase, { defaultConfig }) =>
   withPlugins([withSvgr, withGraphql], nextConfig)(phase, { ...defaultConfig, ...nextConfig });
-/* eslint-enable */
