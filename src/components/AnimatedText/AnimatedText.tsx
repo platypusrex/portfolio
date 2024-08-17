@@ -1,39 +1,36 @@
+'use client';
 import React from 'react';
 import { Nanum_Pen_Script } from 'next/font/google';
-import { Text, TextProps } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { letter, sentence } from 'components/AnimatedText/constants';
 
-const MotionText = motion(Text);
 const nanumPenScript = Nanum_Pen_Script({
   subsets: ['latin'],
   display: 'swap',
   weight: ['400'],
 });
 
-interface AnimatedTextProps extends TextProps {
-  text: string;
+interface AnimatedTextProps {
+  className?: string;
   staggerDelay?: number;
+  children: string;
 }
 
 export const AnimatedText: React.FC<AnimatedTextProps> = ({
-  text,
+  children,
   staggerDelay,
-  fontSize = '3xl',
-  ...textProps
+  className,
 }) => (
-  <MotionText
-    className={nanumPenScript.className}
-    fontSize={fontSize}
+  <motion.span
+    className={`${nanumPenScript.className} ${className}`}
     variants={sentence(staggerDelay)}
     initial="hidden"
     animate="visible"
-    {...textProps}
   >
-    {text.split('').map((char, i) => (
-      <motion.span key={`${char}:${i}`} variants={letter}>
+    {children.split('').map((char, i) => (
+      <motion.span className="font-[inherit]" key={`${char}:${i}`} variants={letter}>
         {char}
       </motion.span>
     ))}
-  </MotionText>
+  </motion.span>
 );

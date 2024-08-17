@@ -1,20 +1,16 @@
 import React from 'react';
-import { Flex, Heading, Link, Text } from '@chakra-ui/react';
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { Maybe, PageFieldsFragment } from 'types/generated';
+import NextLink from 'next/link';
 
 const subTitleOptions: Options = {
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (_, children) => (
-      <Text fontSize="10" textAlign="center">
-        {children}
-      </Text>
-    ),
+    [BLOCKS.PARAGRAPH]: (_, children) => <p className="text-[10px] text-center">{children}</p>,
     [INLINES.HYPERLINK]: (node, children) => (
-      <Link color="blue.600" href={node.data.uri}>
+      <NextLink className="text-blue-400 hover:underline" href={node.data.uri}>
         {children}
-      </Link>
+      </NextLink>
     ),
   },
 };
@@ -29,32 +25,16 @@ export const PageHeader: React.FC<PageHeaderProps> = ({ title, description, extr
   }
 
   return (
-    <Flex
-      paddingY="16"
-      flexDir="column"
-      alignItems="center"
-      position={{ base: 'relative', md: 'static' }}
-    >
-      <Flex
-        flexDir="column"
-        justifyContent="center"
-        alignItems="center"
-        position={{ base: 'static', md: 'relative' }}
-      >
-        <Heading as="h1" fontSize="32" textTransform="uppercase" textAlign="center">
+    <header className="pt-16 pb-8  md:py-16 flex flex-col items-center relative md:static z-10">
+      <div className="flex flex-col justify-center items-center static md:relative">
+        <h1 className="text-[26px] sm:text-[32px] md:leading-[1.2] font-bold uppercase text-center">
           {title}
-        </Heading>
+        </h1>
         {extra && (
-          <Flex
-            position="absolute"
-            right={{ base: '10px', md: '-110px' }}
-            top={{ base: '5px', md: 0 }}
-          >
-            {extra}
-          </Flex>
+          <div className="absolute right-[10px] md:right-[-110px] top-[5px] md:top-0">{extra}</div>
         )}
-      </Flex>
-      {description?.json && documentToReactComponents(description.json, subTitleOptions)}
-    </Flex>
+        {description?.json && documentToReactComponents(description.json, subTitleOptions)}
+      </div>
+    </header>
   );
 };

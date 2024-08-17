@@ -1,5 +1,4 @@
 import React from 'react';
-import { IconButton as ChakraIconButton } from '@chakra-ui/button';
 import { Icon } from 'components/Icon';
 
 interface IconButtonProps {
@@ -8,13 +7,13 @@ interface IconButtonProps {
 }
 
 export const IconButton: React.FC<IconButtonProps> = ({ icon, onClick }) => (
-  <ChakraIconButton
-    isRound
-    paddingX="3px"
+  <button
+    className="inline-flex appearance-none items-center justify-center relative whitespace-nowrap align-middle
+     outline-2 outline-transparent outline-offset-[2px] leading-[1.2] font-medium transition-all duration-200
+      select-none h-10 min-w-10 text-base rounded-full p-0 bg-transparent hover:bg-gray-200"
     aria-label="boom"
-    background="transparent"
     onClick={onClick}
   >
     <Icon icon={icon} size="md" />
-  </ChakraIconButton>
+  </button>
 );

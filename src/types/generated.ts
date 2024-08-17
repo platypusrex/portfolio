@@ -2480,6 +2480,11 @@ export type ResumeSectionFragment = { __typename?: 'ResumeSection', name?: strin
 
 export type SocialLinkFragment = { __typename?: 'SocialLink', href?: string | null, icon?: string | null, target?: string | null };
 
+export type NavLinksQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type NavLinksQuery = { __typename?: 'Query', navLinkCollection?: { __typename?: 'NavLinkCollection', items: Array<{ __typename?: 'NavLink', title?: string | null, description?: string | null, icon?: string | null, href?: string | null } | null> } | null };
+
 export type PageQueryVariables = Exact<{
   id: Scalars['String']['input'];
 }>;

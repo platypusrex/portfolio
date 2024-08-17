@@ -1,8 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Box, Text, VStack } from '@chakra-ui/react';
 import { Icon } from 'components/Icon';
-import { SystemStyleObject } from '@chakra-ui/styled-system';
 
 interface LinkButtonProps {
   title: string;
@@ -10,7 +8,6 @@ interface LinkButtonProps {
   icon: 'file' | 'github';
   href: string;
   external?: boolean;
-  sx?: SystemStyleObject;
 }
 
 export const LinkButton: React.FC<LinkButtonProps> = ({
@@ -19,18 +16,13 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   icon,
   href,
   external = false,
-  sx,
 }) => {
   const LinkContent = (
-    <VStack>
+    <div className="grid justify-items-center">
       <Icon icon={icon} size="lg" />
-      <Text fontSize="lg" textTransform="uppercase" fontWeight="bold" mb={1}>
-        {title}
-      </Text>
-      <Text as="span" fontSize="10px" textTransform="uppercase" m="0px !important">
-        {subTitle}
-      </Text>
-    </VStack>
+      <p className="text-lg uppercase font-bold mt-2">{title}</p>
+      <p className="text-[10px] uppercase m-0">{subTitle}</p>
+    </div>
   );
 
   const Link = !external ? (
@@ -42,5 +34,5 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     <a href={href}>{LinkContent}</a>
   );
 
-  return <Box sx={sx}>{Link}</Box>;
+  return <div>{Link}</div>;
 };

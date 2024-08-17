@@ -1,86 +1,39 @@
+'use client';
 import React from 'react';
 import NextLink from 'next/link';
-import { useRouter } from 'next/router';
-import { Link } from '@chakra-ui/layout';
-import { Flex, Text } from '@chakra-ui/react';
-import { Icon, IconProps } from 'components/Icon';
 import { NavLink as NavLinkProps } from 'types/generated';
+import { Icon, IconProps } from 'components/Icon';
 
-const pseudoStyles = {
-  width: '80%',
-  background: 'gray.50',
-};
+type NavLinkTWProps = Pick<NavLinkProps, 'title' | 'description' | 'icon' | 'href'>;
 
-export const NavLink: React.FC<Pick<NavLinkProps, 'title' | 'description' | 'icon' | 'href'>> = ({
-  href,
-  title,
-  description,
-  icon,
-}) => {
-  const { pathname } = useRouter();
-
+export function NavLink({ description, icon, title, href }: NavLinkTWProps) {
   if (!href) return null;
-
   return (
-    <NextLink href={href} passHref legacyBehavior>
-      <Link
-        {...(pathname === href ? { 'aria-current': 'page' } : {})}
-        display="inline-block"
-        textAlign="center"
-        cursor="pointer"
-        width="70%"
-        p="10px"
-        my="10px"
-        borderRadius="2px"
-        transition="all 0.25s ease-in-out"
-        textTransform="uppercase"
-        textDecoration="none"
-        _hover={{ ...pseudoStyles, color: 'red.400' }}
-        _focus={{ ...pseudoStyles, color: 'red.500' }}
-        _activeLink={{ ...pseudoStyles, color: 'red.500' }}
-        sx={{
-          path: { transition: 'fill 0.25s ease-in-out' },
-          '&[aria-current=page] path, &:hover path, &:focus path': { fill: 'red.500' },
-          '&[aria-current=page] span, &:hover span, &:focus span': {
-            background: 'gray.50',
-            transition: 'background 0.25s ease-in-out',
-          },
-        }}
+    <NextLink
+      href={href}
+      className="inline-block text-center cursor-pointer w-[80%] p-[10px] my-[10px]rounded-[2px] rounded-md
+       uppercase decoration-[none] transition-all ease-in-out duration-300
+        group-hover:w-full group-active:w-full group-focus:w-full
+         group-hover:bg-gray-50 group-active:bg-gray-50 group-focus:bg-gray-50
+         group-hover:text-red-500 group-active:text-red-500 group-focus:text-red-500"
+    >
+      <p className="text-[18px] font-bold uppercase mt-4 mb-4">{title}</p>
+      <div
+        className="flex relative items-center justify-center border-t border-solid border-t-gray-500
+          group-hover:border-t-red-500 group-active:border-t-red-500 group-focus:border-t-red-500"
       >
-        <Text
-          fontSize="18px"
-          casing="uppercase"
-          fontWeight="bold"
-          marginBlockStart="1em"
-          marginBlockEnd="0.875em"
+        <span
+          className="flex absolute justify-center w-[30px] h-[30px] bg-white transition-all ease-in-out
+         duration-300 group-hover:bg-gray-50 group-active:bg-gray-50 group-focus:bg-gray-50"
         >
-          {title}
-        </Text>
-        {icon && (
-          <Flex
-            justify="center"
-            align="center"
-            borderTop="1px solid"
-            borderColor="gray.500"
-            position="relative"
-          >
-            <Flex
-              as="span"
-              position="absolute"
-              justify="center"
-              w="30px"
-              h="30px"
-              bg="white"
-              transition="background 0.15s ease-in-out"
-            >
-              <Icon icon={icon as IconProps['icon']} />
-            </Flex>
-          </Flex>
-        )}
-        <Text fontSize="10px" marginBlockStart="1.5rem" marginBlockEnd="1rem">
-          {description}
-        </Text>
-      </Link>
+          <Icon
+            icon={icon as IconProps['icon']}
+            className="transition-all duration-300 ease-in-out
+             group-hover:fill-red-500 group-active:fill-red-500 group-focus:fill-red-500"
+          />
+        </span>
+      </div>
+      <p className="text-[9px] mt-5 mb-4">{description}</p>
     </NextLink>
   );
-};
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Circle } from '@chakra-ui/react';
 import { Icon } from 'components/Icon';
 
 export interface SocialLinkProps {
@@ -9,24 +8,18 @@ export interface SocialLinkProps {
 }
 
 export const SocialLink: React.FC<SocialLinkProps> = ({ icon, href, target }) => (
-  <Circle
+  <a
     href={href}
     target={target}
     aria-label={`${icon} link`}
-    as="a"
-    padding="9px"
-    border="1px solid black"
-    background="transparent"
-    cursor="pointer"
-    transition="background 0.15s ease-in-out"
-    _hover={{ background: 'black', color: 'white' }}
-    sx={{
-      '&:hover svg': {
-        fill: 'white',
-        transition: 'fill 0.3s ease-in-out',
-      },
-    }}
+    className="p-[9px] group rounded-full h-fit border border-solid border-black bg-transparent cursor-pointer
+     transition-all duration-150 ease-in-out hover:bg-black hover:text-white"
   >
-    <Icon icon={icon} size="sm" />
-  </Circle>
+    <span
+      className="group-hover:[&>svg]:fill-white group-hover:[&>svg]:transition-all
+     group-hover:[&>svg]:duration-150 group-hover:[&>svg]:ease-in-out"
+    >
+      <Icon icon={icon} size="sm" />
+    </span>
+  </a>
 );

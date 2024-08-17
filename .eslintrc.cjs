@@ -8,7 +8,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/**/pages/**', 'next.config.mjs'],
+      files: ['**/**/pages/**', '**/**/app/**', 'next.config.mjs'],
       rules: { 'import/no-default-export': 'off' },
     },
   ],
