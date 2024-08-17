@@ -35,12 +35,19 @@ const iconMap = {
 } as const;
 
 export type IconProps = {
+  className?: string;
   icon: 'user' | 'email' | 'download' | 'file' | 'printer' | 'wrench' | 'github' | 'linkedin';
   size?: number | 'sm' | 'md' | 'lg';
   title?: string;
 };
 
-export const Icon: React.FC<IconProps> = ({ icon, size, title }) => {
+export const Icon: React.FC<IconProps> = ({ icon, size, title, className }) => {
   const Icon = iconMap[icon];
-  return <Icon title={title} fontSize={getIconSize(size)} className="icon" />;
+  return (
+    <Icon
+      title={title}
+      fontSize={getIconSize(size)}
+      className={`icon ${className ? className : ''}`}
+    />
+  );
 };

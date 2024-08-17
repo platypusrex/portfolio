@@ -1,21 +1,15 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
-import { stretchDelay } from 'components/Spinner/styles';
 
 const animationDelay = ['0s', '-1.1s', '-1.0s', '-0.9s', '-0.8s'];
 
 export const Spinner: React.FC = () => (
-  <Box w="25px" h="25px">
+  <span className="w-[25px] h-[25px] block absolute">
     {animationDelay.map((delay, i) => (
-      <Box
+      <span
         key={i.toString()}
-        bg="white"
-        mr="1px"
-        display="inline-block"
-        h="100%"
-        w="3px"
-        animation={`${stretchDelay} 1.2s infinite ${delay} ease-in-out`}
+        style={{ animationDelay: delay }}
+        className={`bg-white mr-[1px] inline-block h-full w-[3px] animate-[1.2s_ease-in-out_infinite_stretch]`}
       />
     ))}
-  </Box>
+  </span>
 );

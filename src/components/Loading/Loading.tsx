@@ -1,26 +1,15 @@
 import React from 'react';
-import { Flex, Progress } from '@chakra-ui/react';
 import { AnimatedText } from 'components/AnimatedText';
 
 export const Loading: React.FC = () => (
-  <Flex
-    h="100vh"
-    direction="column"
-    justify="center"
-    marginInline="auto"
-    maxWidth="300px"
-    padding="10px"
-  >
+  <div className="h-screen flex flex-col justify-center mx-auto max-w-[300px] p-[10px]">
     <AnimatedText
-      text="Loading content..."
+      className="text-gray-800 self-center uppercase text-xl font-bold mb-[10px]"
       staggerDelay={0.05}
-      color="gray.800"
-      alignSelf="center"
-      textTransform="uppercase"
-      fontSize="xl"
-      fontWeight="bold"
-      mb="10px"
-    />
-    <Progress height="2px" isIndeterminate colorScheme="red" />
-  </Flex>
+    >
+      Loading content...
+    </AnimatedText>
+    {/*TODO: add progress bar*/}
+    {/*<Progress height="2px" isIndeterminate colorScheme="red" />*/}
+  </div>
 );

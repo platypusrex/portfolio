@@ -1,47 +1,27 @@
 import React from 'react';
-import { Box, Flex } from '@chakra-ui/layout';
-import { hamburgerBars } from 'components/MenuToggle/styles';
 
 interface MenuToggleProps {
   isOpen?: boolean;
   onClick?: () => void;
 }
 
-export const MenuToggle: React.FC<MenuToggleProps> = ({ isOpen, onClick }) => (
-  <Flex
-    display={{ md: 'none' }}
-    as="button"
-    justifyContent="center"
-    alignItems="center"
-    position="absolute"
-    top={0}
-    left={0}
-    zIndex={2}
-    h="50px"
-    w="62px"
-    onClick={onClick}
-    aria-label="opens the navigation menu"
-  >
-    <Flex
-      justifyContent="center"
-      position="relative"
-      h="38px"
-      w="48px"
-      marginX="6px"
-      overflow="hidden"
+export const MenuToggle: React.FC<MenuToggleProps> = ({ isOpen, onClick }) => {
+  return (
+    <button
+      onClick={onClick}
+      className="flex md:hidden absolute top-0 left-0 z-20 w-[50px] h-[62px] items-center justify-center"
     >
-      {hamburgerBars.map(({ animate, animateReverse, ...rest }, i) => (
-        <Box
-          {...rest}
-          key={i.toString(10) + rest}
-          as="span"
-          position="absolute"
-          h="4px"
-          width="35px"
-          bg="gray.800"
-          animation={`0.5s alternate both ${isOpen ? animate : animateReverse}`}
+      <div className="flex relative justify-center w-[48px] h-[38px] mx-[6px] overflow-hidden">
+        <span
+          className={`absolute h-[4px] w-[35px] bg-gray-600 top-[8px] ${isOpen ? 'animate-barOne' : 'animate-barOneReverse'}`}
         />
-      ))}
-    </Flex>
-  </Flex>
-);
+        <span
+          className={`absolute h-[4px] w-[35px] bg-gray-600 top-[17px] ${isOpen ? 'animate-barTwo' : 'animate-barTwoReverse'}`}
+        />
+        <span
+          className={`absolute h-[4px] w-[35px] bg-gray-600 bottom-[8px] ${isOpen ? 'animate-barThree' : 'animate-barThreeReverse'}`}
+        />
+      </div>
+    </button>
+  );
+};

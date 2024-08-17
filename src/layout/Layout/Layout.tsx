@@ -1,16 +1,23 @@
-import React from 'react';
-import { Grid } from '@chakra-ui/react';
-import { Menu } from 'layout/Menu/Menu';
-import { Content } from 'layout/Content/Content';
-import { Maybe, PageFieldsFragment } from 'types/generated';
+import React, { Suspense } from 'react';
+import { gqlClient } from 'lib/urql/server';
+import { NavLinks } from 'gql';
+import { AppLayout } from './AppLayout';
+import { Loading } from 'components/Loading';
+import { NavLinkCollection, NavLinksQuery, NavLinksQueryVariables } from 'types/generated';
 
-interface LayoutProps {
-  navLinks?: Maybe<PageFieldsFragment['navLinksCollection']>;
+type LayoutServerProps = {
+  children?: React.ReactNode;
+};
+
+export async function Layout({ children }: LayoutServerProps) {
+  const { data } = await gqlClient().query<NavLinksQuery, NavLinksQueryVariables>(NavLinks, {});
+  const navLinks = data?.navLinkCollection?.items as NavLinkCollection['items'];
+
+  return (
+    <div className="grid grid-cols-[0_auto] md:grid-cols-[200px_auto] [transition:300ms] min-h-full">
+      <Suspense fallback={<Loading />}>
+        <AppLayout navLinks={navLinks}>{children}</AppLayout>
+      </Suspense>
+    </div>
+  );
 }
-
-export const Layout: React.FCC<LayoutProps> = ({ children, navLinks }) => (
-  <Grid templateColumns={{ base: '0 1fr', md: '200px 1fr' }} templateAreas={`'sidebar content'`}>
-    {navLinks && <Menu navLinks={navLinks} />}
-    <Content>{children}</Content>
-  </Grid>
-);

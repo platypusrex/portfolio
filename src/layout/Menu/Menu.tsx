@@ -1,57 +1,32 @@
+'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Box, Flex, FlexProps } from '@chakra-ui/react';
-import { NavLink } from 'components/NavLink';
-import { useLayoutContext } from 'lib/layoutContext';
 import { item, list } from 'layout/Menu/constants';
-import { PageFieldsFragment } from 'types/generated';
+import { useLayoutContext } from 'lib/layoutContext';
+import { NavLink } from 'components/NavLink';
+import { NavLinkCollection } from 'types/generated';
 
-const MotionFlex = motion<FlexProps>(Flex);
-
-interface MenuProps {
-  navLinks: PageFieldsFragment['navLinksCollection'];
-}
-
-export const Menu: React.FC<MenuProps> = ({ navLinks }) => {
+export function Menu({ navLinks }: { navLinks?: NavLinkCollection['items'] | null }) {
   const { isMenuOpen } = useLayoutContext();
-
-  // const links = [
-  //   ...(navLinks?.items ?? []),
-  //   { title: 'Projects', description: "Things I've built", href: '/projects', icon: 'wrench' },
-  // ];
-
   return (
-    <motion.div initial="hidden" animate="visible" variants={list}>
-      <Box
-        as="nav"
-        overflowY="scroll"
-        display="grid"
-        gridArea="sidebar"
-        borderWidth="1px"
-        borderColor="gray.100"
-        borderRight="1px solid #e8e8e8"
-        position="fixed"
-        w="200px"
-        h="100vh"
-        transition="transform 0.5s ease-in-out"
-        transform={{
-          base: isMenuOpen ? 'translateX(0)' : 'translateX(-200px)',
-          md: 'translateX(0)',
-        }}
+    <motion.aside initial="hidden" animate="visible" variants={list}>
+      <nav
+        className={`fixed grid border-r border-gray-300 h-screen overflow-y-scroll w-[200px] p-6
+         transition-transform duration-300 ease-in-out
+          ${isMenuOpen ? 'translate-0' : 'translate-x-[-200px] md:translate-x-0'}`}
       >
-        <Box marginBlock="auto">
-          {navLinks?.items.map((navLink, i) => (
-            <MotionFlex
+        <div className="m-[auto_0px] grid gap-4">
+          {navLinks?.map((navLink, i) => (
+            <motion.div
               key={`${i}:${navLink?.__typename}`}
-              w="100%"
-              justifyContent="center"
+              className="group flex justify-center w-full"
               variants={item}
             >
-              <NavLink {...navLink} />
-            </MotionFlex>
+              {navLink?.href && <NavLink {...navLink} />}
+            </motion.div>
           ))}
-        </Box>
-      </Box>
-    </motion.div>
+        </div>
+      </nav>
+    </motion.aside>
   );
-};
+}

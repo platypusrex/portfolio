@@ -1,10 +1,10 @@
+'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Box } from '@chakra-ui/react';
 import { pathDefinitions, pathVariants, svgVariants } from 'components/Arrow/constants';
 
 export const Arrow: React.FC = () => (
-  <Box ml="70px" transform="rotate(65deg)" as="span" display="inline-block">
+  <span className="ml-[70px] transform rotate-[65deg] inline-block">
     <motion.svg
       id="arrow"
       x="0px"
@@ -24,5 +24,5 @@ export const Arrow: React.FC = () => (
         </g>
       </g>
     </motion.svg>
-  </Box>
+  </span>
 );

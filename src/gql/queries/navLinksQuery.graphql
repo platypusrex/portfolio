@@ -1,0 +1,9 @@
+#import '../fragments/navLinkFragment.graphql'
+
+query NavLinks {
+  navLinkCollection(order: [name_ASC]) {
+    items {
+      ...NavLink
+    }
+  }
+}

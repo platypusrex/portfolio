@@ -2,6 +2,9 @@ import withSvgr from 'next-plugin-svgr';
 import withGraphql from 'nextjs-plugin-graphql';
 import withPlugins from 'next-compose-plugins';
 
+const target = `https://graphql.contentful.com`;
+const spaceId = process.env.CONTENTFUL_SPACE_ID;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -10,9 +13,17 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.ctfassets.net',
         port: '',
-        pathname: '*',
+        pathname: '/**/*',
       },
     ],
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api/graphql',
+        destination: `${target}/content/v1/spaces/${spaceId}`,
+      },
+    ];
   },
 };
 
