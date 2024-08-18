@@ -1,11 +1,18 @@
 import Image from 'next/image';
+import { Metadata } from 'next';
 import { getPage } from 'actions/getPage';
 import { PageHeader } from 'components/PageHeader';
 import { ContactForm } from 'modules/contact/ContactForm';
 import { ContactInfo } from 'modules/contact/ContactInfo';
+import { pageMeta } from 'constants/pageMeta';
 import 'react-toastify/dist/ReactToastify.css';
 
 const CONTACT_PAGE_ID = '6fWZPk4ERnFuZc3yMFqrSY';
+
+export const metadata: Metadata = {
+  title: pageMeta.contact.title,
+  description: pageMeta.contact.description,
+};
 
 export default async function ContactPage() {
   const { socialLinksCollection, contactInfo, pageHeader, hero } = await getPage(CONTACT_PAGE_ID);
