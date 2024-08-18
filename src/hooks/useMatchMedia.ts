@@ -7,6 +7,7 @@ export const useMatchMedia = (width = 600): boolean => {
   useEffect(() => {
     matchMediaRef.current = window.matchMedia(`(min-width: ${width}px)`);
     const initialMatch = matchMediaRef.current.matches;
+    console.log({ initialMatch });
 
     if (initialMatch) {
       setToggleChange(true);

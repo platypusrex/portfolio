@@ -1,4 +1,5 @@
-import { createContext, FCC, useCallback, useContext, useState } from 'react';
+import { createContext, FCC, useCallback, useContext, useEffect, useState } from 'react';
+import { useMatchMedia } from 'hooks/useMatchMedia';
 
 export interface LayoutContextType {
   isMenuOpen: boolean;
@@ -12,10 +13,16 @@ const LayoutContext = createContext<LayoutContextType>({
 });
 
 export const LayoutProvider: FCC = ({ children }) => {
+  const isDesktop = useMatchMedia(767);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const handleSetMenuOpen = useCallback(() => {
+    if (isDesktop) return;
     setMenuOpen((prevState) => !prevState);
-  }, []);
+  }, [isDesktop]);
+
+  useEffect(() => {
+    if (isDesktop) setMenuOpen(false);
+  }, [isDesktop]);
 
   return (
     <LayoutContext.Provider
