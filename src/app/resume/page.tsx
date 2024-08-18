@@ -1,9 +1,16 @@
+import { Metadata } from 'next';
 import { getPage } from 'actions/getPage';
 import { IconButton } from 'components/IconButton/IconButton';
 import { PageHeader } from 'components/PageHeader/PageHeader';
 import { Resume } from 'modules/resume/Resume/Resume';
+import { pageMeta } from 'constants/pageMeta';
 
 const RESUME_PAGE_ID = 'FJdbfsztIScwFLQDTstZ4';
+
+export const metadata: Metadata = {
+  title: pageMeta.resume.title,
+  description: pageMeta.resume.description,
+};
 
 export default async function AboutPage() {
   const { pageHeader, resumeSectionsCollection } = await getPage(RESUME_PAGE_ID);

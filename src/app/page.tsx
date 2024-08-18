@@ -8,6 +8,8 @@ import { ScrollButton } from 'components/ScrollButton';
 import { AnimatedText } from 'components/AnimatedText';
 import { Arrow } from 'components/Arrow';
 import me_mobile from 'public/images/me.png';
+import { Metadata } from 'next';
+import { pageMeta } from 'constants/pageMeta';
 
 const contentOptions: Options = {
   renderNode: {
@@ -18,6 +20,11 @@ const contentOptions: Options = {
 };
 
 const ABOUT_PAGE_ID = '6iA2yPjBR8dYsO6YFwJuu3';
+
+export const metadata: Metadata = {
+  title: pageMeta.about.title,
+  description: pageMeta.about.description,
+};
 
 export default async function AboutPage() {
   const { content, pageHeader } = await getPage(ABOUT_PAGE_ID);
