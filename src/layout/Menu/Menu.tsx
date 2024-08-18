@@ -7,7 +7,7 @@ import { NavLink } from 'components/NavLink';
 import { NavLinkCollection } from 'types/generated';
 
 export function Menu({ navLinks }: { navLinks?: NavLinkCollection['items'] | null }) {
-  const { isMenuOpen } = useLayoutContext();
+  const { isMenuOpen, setMenuOpen } = useLayoutContext();
   return (
     <motion.aside initial="hidden" animate="visible" variants={list}>
       <nav
@@ -22,7 +22,7 @@ export function Menu({ navLinks }: { navLinks?: NavLinkCollection['items'] | nul
               className="group flex justify-center w-full"
               variants={item}
             >
-              {navLink?.href && <NavLink {...navLink} />}
+              {navLink?.href && <NavLink onClick={setMenuOpen} {...navLink} />}
             </motion.div>
           ))}
         </div>
